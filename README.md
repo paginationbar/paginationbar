@@ -1,4 +1,4 @@
-<p align="center">:construction: Developing..., And under active development, no official release yet :construction:</p>
+<p align="center">:construction: Under active development, no official release yet. :construction:</p>
 
 # paginationbar
 
