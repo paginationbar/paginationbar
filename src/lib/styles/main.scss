@@ -1,0 +1,46 @@
+
+$--theme-color: #409eff;
+
+.pagination-bar-container {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: 2px 5px;
+  color: #303133;
+  font-weight: 700;
+  font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+}
+
+.pagination-bar {
+  &__pager {
+    display: flex;
+    align-items: center;
+    user-select: none;
+    list-style: none;
+    padding: 0;
+
+    &__number {
+      padding: 0 4px;
+      background: #fff;
+      font-size: 13px;
+      cursor: pointer;
+      box-sizing: border-box;
+      text-align: center;
+      margin: 0;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 35.5px;
+      height: 28px;
+
+      &.active {
+        color: $--theme-color;
+        cursor: default;
+      }
+
+      &:hover {
+        color: $--theme-color;
+      }
+    }
+  }
+}

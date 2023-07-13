@@ -1,20 +1,51 @@
-import type { PagerRecord, PaginationBarOptions } from './interfaces/core'
+import type {
+  PagerRecord,
+  PaginationBarOptions,
+  PaginationBarInstance,
+  PagerItemDataset,
+} from './interfaces/core'
+import { ERRORS } from './ERRORS'
+import { CONSTANTS } from './CONSTANTS'
+import { addClass } from './dom'
 
-export class PaginationBar {
-  options = {
+export class PaginationBar implements PaginationBarInstance {
+  options: Required<PaginationBarOptions> = {
     pagerCount: 7,
     currentPage: 1,
     pageSize: 10,
     total: 0,
+    container: '#pagination-bar-container',
+    onCurrentPageChange: () => {},
+    onPageSizeChange: () => {},
+  }
+
+  setCurrentPage(value: number, reRender: boolean = true) {
+    this.options.currentPage = value
+    this.options?.onCurrentPageChange(this.options.currentPage)
+    reRender && this.render()
+  }
+
+  setPageSize(value: number, reRender: boolean = true) {
+    this.options.pageSize = value
+    this.options?.onPageSizeChange(this.options.pageSize)
+    reRender && this.render()
+  }
+
+  setTotal(value: number, reRender: boolean = true) {
+    this.options.total = value || 0
+    reRender && this.render()
+  }
+
+  setOptions(opts: PaginationBarOptions, reRender: boolean = false) {
+    this.options = Object.assign(this.options, opts)
+    reRender && this.render()
   }
 
   constructor(opts?: PaginationBarOptions) {
     this.options = Object.assign(this.options, opts)
+    this.render()
   }
 
-  /**
-   * 总页数
-   */
   get pageCount() {
     return Math.ceil(this.options.total / this.options.pageSize)
   }
@@ -23,9 +54,6 @@ export class PaginationBar {
     return this.pageCount
   }
 
-  /**
-   * 主页码显示个数
-   */
   get mainPagerCount() {
     const count = this.options.pagerCount - 2
 
@@ -36,9 +64,6 @@ export class PaginationBar {
     return Math.floor(this.mainPagerCount / 2)
   }
 
-  /**
-   * 主页码起始页码
-   */
   get mainPagerStart() {
     let step = this.mainPagerGap
 
@@ -53,9 +78,6 @@ export class PaginationBar {
     return pageNumber < 1 ? 1 : pageNumber
   }
 
-  /**
-   * 主页码结束页码
-   */
   get mainPagerEnd() {
     let step =
       this.mainPagerCount % 2 === 0 ? this.mainPagerGap - 1 : this.mainPagerGap
@@ -138,9 +160,69 @@ export class PaginationBar {
     return this.leftPager.concat(this.mainPager, this.rightPager)
   }
 
-  generatePager() {
-    console.log(this.finalPager)
+  getContainerEl(): HTMLElement {
+    if (typeof this.options.container === 'string') {
+      const el = document.querySelector(this.options.container)
+      if (!el) {
+        throw new Error(ERRORS.getContainerElError)
+      }
+
+      return el as HTMLElement
+    }
+
+    return this.options.container
   }
 
-  render() {}
+  isPagerNumberType(type: string) {
+    return !['prev-ellipsis', 'next-ellipsis'].includes(type)
+  }
+
+  generatePager() {
+    const numbersHtml = this.finalPager.reduce((res, v) => {
+      const text = this.isPagerNumberType(v.type) ? v.pageNumber : '...'
+      const isActive = this.options.currentPage === v.pageNumber ? 'active' : ''
+
+      res += `<li class="${CONSTANTS.pagerItemClassName} ${isActive}" data-number="${v.pageNumber}" data-type="${v.type}">${text}</li>`
+
+      return res
+    }, '')
+
+    return `<ul class="${CONSTANTS.pagerWrapperClassName}">${numbersHtml}</ul>`
+  }
+
+  getPagerItemDataset(el: HTMLElement) {
+    return el.dataset as PagerItemDataset
+  }
+
+  registerPagerListener() {
+    this.getContainerEl()
+      .querySelectorAll(
+        `.${CONSTANTS.pagerWrapperClassName} .${CONSTANTS.pagerItemClassName}`
+      )
+      ?.forEach((el) => {
+        el.addEventListener('click', (e) => {
+          const pagerEl = e.target as HTMLElement
+          const dataset = this.getPagerItemDataset(pagerEl)
+
+          if (this.isPagerNumberType(dataset.type)) {
+            const newCurrPage = Number(dataset.number)
+            this.setCurrentPage(newCurrPage)
+          }
+        })
+      })
+  }
+
+  render() {
+    const container = this.getContainerEl()
+
+    addClass(container, CONSTANTS.containerClassName)
+
+    const pager = this.generatePager()
+
+    const htmlContent = `${pager}`
+
+    container.innerHTML = htmlContent
+
+    this.registerPagerListener()
+  }
 }
