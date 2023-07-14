@@ -1,21 +1,16 @@
-export type PagerRecordType =
+type PagerRecordType =
   | 'main'
   | 'first-page'
   | 'prev-ellipsis'
   | 'next-ellipsis'
   | 'last-page'
 
-export interface PagerRecord {
+interface PagerRecord {
   pageNumber: number | null
   type: PagerRecordType
 }
 
-export interface PagerItemDataset extends Record<string, string> {
-  number: string
-  type: PagerRecordType
-}
-
-export interface PaginationBarOptions {
+interface PaginationBarOptions {
   container: string | HTMLElement
 
   /**
@@ -44,7 +39,7 @@ export interface PaginationBarOptions {
   onPageSizeChange?: (size: number) => void
 }
 
-export interface PaginationBarInstance {
+interface PaginationBarInstance {
   options: PaginationBarOptions
 
   /**
@@ -93,6 +88,10 @@ export interface PaginationBarInstance {
   setOptions(opts: PaginationBarOptions, reRender?: boolean): void
 }
 
-export type CreatePaginationBar = (
+type CreatePaginationBar = (
   opts?: PaginationBarOptions
 ) => PaginationBarInstance
+
+declare const createPaginationBar: CreatePaginationBar
+
+export { PagerRecord, PagerRecordType, PaginationBarInstance, PaginationBarOptions, createPaginationBar };

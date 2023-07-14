@@ -1,9 +1,9 @@
-import type { PaginationBarOptions } from './interfaces/core'
+import type { CreatePaginationBar } from './interfaces/core'
 import { PaginationBar } from './paginationBar'
 
 import '@/lib/styles/main.scss'
 
-const createPaginationBar = (opts?: PaginationBarOptions) => {
+const createPaginationBar: CreatePaginationBar = (opts) => {
   return new PaginationBar(opts)
 }
 
