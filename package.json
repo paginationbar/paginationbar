@@ -18,10 +18,17 @@
     },
     "./lib/style.css": "./lib/style.css"
   },
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "pagination",
     "pagination-bar"
   ],
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/paginationbar/paginationbar"
+  },
   "homepage": "https://github.com/paginationbar/paginationbar",
   "scripts": {
     "dev": "vite",

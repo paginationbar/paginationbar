@@ -36,3 +36,5 @@ const paginationBar = createPaginationBar({
 # Options
 
 # Change Logs
+
+see [here](./CHANGELOG.md).
