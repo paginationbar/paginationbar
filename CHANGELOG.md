@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.3
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v0.0.2...v0.0.3)
+
+### 🩹 Fixes
+
+- **deploy:** Add .nojekyll file ([b6f4444](https://github.com/paginationbar/paginationbar/commit/b6f4444))
+
+### 🏡 Chore
+
+- **docs:** Update readme ([204125a](https://github.com/paginationbar/paginationbar/commit/204125a))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v0.0.2
 
 
