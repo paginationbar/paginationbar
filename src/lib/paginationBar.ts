@@ -48,6 +48,7 @@ export class PaginationBar implements PaginationBarInstance {
   constructor(opts?: PaginationBarOptions) {
     this.options = Object.assign(this.options, opts)
     this.render()
+    this.registerListener()
   }
 
   get pageCount() {
@@ -208,15 +209,18 @@ export class PaginationBar implements PaginationBarInstance {
   }
 
   isPagerNumberType(type: string) {
-    return !['prev-ellipsis', 'next-ellipsis'].includes(type)
+    return type && !['prev-ellipsis', 'next-ellipsis'].includes(type)
   }
 
   generatePager() {
     const numbersHtml = this.finalPager.reduce((res, v) => {
       const text = this.isPagerNumberType(v.type) ? v.pageNumber : MoreIconRaw
       const isActive = this.options.currentPage === v.pageNumber ? 'active' : ''
+      const role = this.isPagerNumberType(v.type)
+        ? 'pager-number'
+        : 'pager-quick-btn'
 
-      res += `<li class="${CONSTANTS.pagerItemClassName} ${isActive}" data-number="${v.pageNumber}" data-type="${v.type}">${text}</li>`
+      res += `<li class="${CONSTANTS.pagerItemClassName} ${isActive}" data-number="${v.pageNumber}" data-type="${v.type}" role="${role}">${text}</li>`
 
       return res
     }, '')
@@ -225,11 +229,11 @@ export class PaginationBar implements PaginationBarInstance {
   }
 
   generatePrev() {
-    return `<button type="button" class="${CONSTANTS.prevButtonClassName}">${PrevIconRaw}</button>`
+    return `<button type="button" class="${CONSTANTS.prevButtonClassName}" role="prev-btn">${PrevIconRaw}</button>`
   }
 
   generateNext() {
-    return `<button type="button" class="${CONSTANTS.nextButtonClassName}">${NextIconRaw}</button>`
+    return `<button type="button" class="${CONSTANTS.nextButtonClassName}" role="next-btn">${NextIconRaw}</button>`
   }
 
   generateSizes() {
@@ -248,22 +252,23 @@ export class PaginationBar implements PaginationBarInstance {
     return el.dataset as PagerItemDataset
   }
 
-  registerPagerListener() {
-    this.getContainerEl()
-      .querySelectorAll(
-        `.${CONSTANTS.pagerWrapperClassName} .${CONSTANTS.pagerItemClassName}`
-      )
-      ?.forEach((el) => {
-        el.addEventListener('click', (e) => {
-          const pagerEl = e.target as HTMLElement
-          const dataset = this.getPagerItemDataset(pagerEl)
+  registerListener() {
+    this.getContainerEl().addEventListener('click', (e) => {
+      const el = e.target as HTMLElement
+      const role = el.getAttribute('role')
 
-          if (this.isPagerNumberType(dataset.type)) {
-            const newCurrPage = Number(dataset.number)
-            this.setCurrentPage(newCurrPage)
-          }
-        })
-      })
+      if (role === 'pager-number') {
+        const dataset = this.getPagerItemDataset(el)
+        const newCurrPage = Number(dataset.number)
+        this.setCurrentPage(newCurrPage)
+      } else if (role === 'next-btn') {
+        this.options.currentPage < this.lastPageNumber &&
+          this.setCurrentPage(this.options.currentPage + 1)
+      } else if (role === 'prev-btn') {
+        this.options.currentPage > 1 &&
+          this.setCurrentPage(this.options.currentPage - 1)
+      }
+    })
   }
 
   render() {
@@ -274,6 +279,5 @@ export class PaginationBar implements PaginationBarInstance {
     const htmlContent = this.getLayoutHTML()
 
     container.innerHTML = htmlContent
-    this.registerPagerListener()
   }
 }
