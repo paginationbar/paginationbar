@@ -67,6 +67,7 @@
     "sass": "^1.63.6",
     "typescript": "~4.8.4",
     "vite": "^4.1.4",
+    "vite-plugin-svg4vue": "^2.15.0",
     "vitest": "^0.29.1",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6",

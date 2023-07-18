@@ -15,6 +15,14 @@ export interface PagerItemDataset extends Record<string, string> {
   type: PagerRecordType
 }
 
+export type PaginationLayoutTypes =
+  | 'sizes'
+  | 'prev'
+  | 'pager'
+  | 'next'
+  | 'jumper'
+  | 'total'
+
 export interface PaginationBarOptions {
   container: string | HTMLElement
 
@@ -38,6 +46,8 @@ export interface PaginationBarOptions {
    * 总条目数
    */
   total?: number
+
+  layout?: string | PaginationLayoutTypes[]
 
   onCurrentPageChange?: (index: number) => void
 
@@ -91,6 +101,22 @@ export interface PaginationBarInstance {
   setTotal(value: number, reRender?: boolean): void
 
   setOptions(opts: PaginationBarOptions, reRender?: boolean): void
+
+  getLayout(): string[]
+
+  getLayoutHTML(): string
+
+  generatePager(): string
+
+  generatePrev(): string
+
+  generateNext(): string
+
+  generateSizes(): string
+
+  generateJumper(): string
+
+  generateTotal(): string
 }
 
 export type CreatePaginationBar = (

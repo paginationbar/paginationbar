@@ -7,14 +7,18 @@ import type {
 import { ERRORS } from './ERRORS'
 import { CONSTANTS } from './CONSTANTS'
 import { addClass } from './dom'
+import PrevIconRaw from './icons/prev.svg?raw'
+import NextIconRaw from './icons/next.svg?raw'
+import MoreIconRaw from './icons/more.svg?raw'
 
 export class PaginationBar implements PaginationBarInstance {
   options: Required<PaginationBarOptions> = {
+    container: '#pagination-bar-container',
     pagerCount: 7,
     currentPage: 1,
     pageSize: 10,
     total: 0,
-    container: '#pagination-bar-container',
+    layout: 'prev,pager,next',
     onCurrentPageChange: () => {},
     onPageSizeChange: () => {},
   }
@@ -160,6 +164,36 @@ export class PaginationBar implements PaginationBarInstance {
     return this.leftPager.concat(this.mainPager, this.rightPager)
   }
 
+  getLayout() {
+    if (typeof this.options.layout === 'string') {
+      return this.options.layout.split(',')
+    } else if (Array.isArray(this.options.layout)) {
+      return this.options.layout
+    }
+
+    return []
+  }
+
+  getLayoutHTML() {
+    return this.getLayout().reduce((res, name) => {
+      if (name === 'pager') {
+        res += this.generatePager()
+      } else if (name === 'prev') {
+        res += this.generatePrev()
+      } else if (name === 'next') {
+        res += this.generateNext()
+      } else if (name === 'jumper') {
+        res += this.generateJumper()
+      } else if (name === 'total') {
+        res += this.generateTotal()
+      } else if (name === 'sizes') {
+        res += this.generateSizes()
+      }
+
+      return res
+    }, '')
+  }
+
   getContainerEl(): HTMLElement {
     if (typeof this.options.container === 'string') {
       const el = document.querySelector(this.options.container)
@@ -179,7 +213,7 @@ export class PaginationBar implements PaginationBarInstance {
 
   generatePager() {
     const numbersHtml = this.finalPager.reduce((res, v) => {
-      const text = this.isPagerNumberType(v.type) ? v.pageNumber : '...'
+      const text = this.isPagerNumberType(v.type) ? v.pageNumber : MoreIconRaw
       const isActive = this.options.currentPage === v.pageNumber ? 'active' : ''
 
       res += `<li class="${CONSTANTS.pagerItemClassName} ${isActive}" data-number="${v.pageNumber}" data-type="${v.type}">${text}</li>`
@@ -188,6 +222,26 @@ export class PaginationBar implements PaginationBarInstance {
     }, '')
 
     return `<ul class="${CONSTANTS.pagerWrapperClassName}">${numbersHtml}</ul>`
+  }
+
+  generatePrev() {
+    return `<button type="button" class="${CONSTANTS.prevButtonClassName}">${PrevIconRaw}</button>`
+  }
+
+  generateNext() {
+    return `<button type="button" class="${CONSTANTS.nextButtonClassName}">${NextIconRaw}</button>`
+  }
+
+  generateSizes() {
+    return ``
+  }
+
+  generateJumper() {
+    return ``
+  }
+
+  generateTotal() {
+    return ``
   }
 
   getPagerItemDataset(el: HTMLElement) {
@@ -217,12 +271,9 @@ export class PaginationBar implements PaginationBarInstance {
 
     addClass(container, CONSTANTS.containerClassName)
 
-    const pager = this.generatePager()
-
-    const htmlContent = `${pager}`
+    const htmlContent = this.getLayoutHTML()
 
     container.innerHTML = htmlContent
-
     this.registerPagerListener()
   }
 }
