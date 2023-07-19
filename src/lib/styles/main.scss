@@ -76,6 +76,11 @@ button {
       }
     }
   }
-
+  
+  &__total {
+    font-size: $--font-size;
+    font-weight: normal;
+    color: #606266;
+  }
 
 }

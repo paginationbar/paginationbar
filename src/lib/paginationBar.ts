@@ -18,7 +18,7 @@ export class PaginationBar implements PaginationBarInstance {
     currentPage: 1,
     pageSize: 10,
     total: 0,
-    layout: 'prev,pager,next',
+    layout: 'prev,pager,next,total',
     onCurrentPageChange: () => {},
     onPageSizeChange: () => {},
   }
@@ -47,8 +47,11 @@ export class PaginationBar implements PaginationBarInstance {
 
   constructor(opts?: PaginationBarOptions) {
     this.options = Object.assign(this.options, opts)
+    this.pagerListener = this.pagerListener.bind(this)
+    this.prevBtnListener = this.prevBtnListener.bind(this)
+    this.nextBtnListener = this.nextBtnListener.bind(this)
+
     this.render()
-    this.registerListener()
   }
 
   get pageCount() {
@@ -245,30 +248,60 @@ export class PaginationBar implements PaginationBarInstance {
   }
 
   generateTotal() {
-    return ``
+    const text = `共 ${this.options.total} 条`
+
+    return `<span class="${CONSTANTS.totalClassName}">${text}</span>`
   }
 
   getPagerItemDataset(el: HTMLElement) {
     return el.dataset as PagerItemDataset
   }
 
-  registerListener() {
-    this.getContainerEl().addEventListener('click', (e) => {
-      const el = e.target as HTMLElement
-      const role = el.getAttribute('role')
+  pagerListener(e: MouseEvent) {
+    const el = e.target as HTMLElement
+    const role = el.getAttribute('role')
 
-      if (role === 'pager-number') {
-        const dataset = this.getPagerItemDataset(el)
-        const newCurrPage = Number(dataset.number)
-        this.setCurrentPage(newCurrPage)
-      } else if (role === 'next-btn') {
-        this.options.currentPage < this.lastPageNumber &&
-          this.setCurrentPage(this.options.currentPage + 1)
-      } else if (role === 'prev-btn') {
-        this.options.currentPage > 1 &&
-          this.setCurrentPage(this.options.currentPage - 1)
-      }
-    })
+    if (role === 'pager-number') {
+      const dataset = this.getPagerItemDataset(el)
+      const newCurrPage = Number(dataset.number)
+      this.setCurrentPage(newCurrPage)
+    }
+  }
+
+  prevBtnListener() {
+    this.options.currentPage > 1 &&
+      this.setCurrentPage(this.options.currentPage - 1)
+  }
+
+  nextBtnListener() {
+    this.options.currentPage < this.lastPageNumber &&
+      this.setCurrentPage(this.options.currentPage + 1)
+  }
+
+  registerListeners() {
+    this.removeListeners()
+
+    const containerEl = this.getContainerEl()
+    containerEl.addEventListener('click', this.pagerListener)
+    containerEl
+      .querySelector('button[role="prev-btn"]')
+      ?.addEventListener('click', this.prevBtnListener)
+
+    containerEl
+      .querySelector('button[role="next-btn"]')
+      ?.addEventListener('click', this.nextBtnListener)
+  }
+
+  removeListeners() {
+    const containerEl = this.getContainerEl()
+    containerEl.removeEventListener('click', this.pagerListener)
+    containerEl
+      .querySelector('button[role="prev-btn"]')
+      ?.removeEventListener('click', this.prevBtnListener)
+
+    containerEl
+      .querySelector('button[role="next-btn"]')
+      ?.removeEventListener('click', this.nextBtnListener)
   }
 
   render() {
@@ -279,5 +312,11 @@ export class PaginationBar implements PaginationBarInstance {
     const htmlContent = this.getLayoutHTML()
 
     container.innerHTML = htmlContent
+
+    this.registerListeners()
+  }
+
+  destory() {
+    this.removeListeners()
   }
 }

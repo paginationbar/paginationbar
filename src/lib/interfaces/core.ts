@@ -94,6 +94,8 @@ export interface PaginationBarInstance {
 
   render(): void
 
+  destory(): void
+
   setCurrentPage(index: number, reRender?: boolean): void
 
   setPageSize(size: number, reRender?: boolean): void
