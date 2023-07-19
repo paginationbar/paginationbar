@@ -1,6 +1,20 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v0.0.3...v0.0.4)
+
+### 🚀 Enhancements
+
+- Prev and next button ([20ba6ee](https://github.com/paginationbar/paginationbar/commit/20ba6ee))
+- Support next and prev control ([24ff735](https://github.com/paginationbar/paginationbar/commit/24ff735))
+- Add total control and upgrade listeners ([b14f4d8](https://github.com/paginationbar/paginationbar/commit/b14f4d8))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v0.0.3
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v0.0.2...v0.0.3)
