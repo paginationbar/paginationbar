@@ -59,15 +59,15 @@ const paginationBar = createPaginationBar({
 ```
 
 # Options
-| Prop | Type | Required | Default value | Available values |Description |
+| Prop | Type | Required | Default value | Available values | Description |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| `container` | `string,HTMLElement` | `true` | `#pagination-bar-container` | - | Specify this to change the container. |
+| `container` | `string` <br /> `HTMLElement` | `true` | `#pagination-bar-container` | - | Specify this to change the container. |
 | `firstPageNumber` | `number` | `false` | `1` | - | Specify this to change the minimum page number of pagination bar. |
 | `pagerCount` | `number` | `false` | `7` | - | Specify this to change the number of page number buttons that will collapse when the total number of pages exceeds this value. |
 | `currentPage` | `number` | `false` | `1` | - | Initialize current page number. |
 | `pageSize` | `number` | `false` | `10` | - | Initialize the number of displayed entries per page. |
 | `total` | `number` | `false` | `0` | - | Initialize total number of entries. |
-| `layout` | `string,string[]` | `false` | `prev,pager,next` | `total,prev,pager,next,jumper,sizes` | Specify this to change the layout of controls. |
+| `layout` | `string` <br /> `string[]` | `false` | `prev,pager,next` | `total` <br /> `prev` <br/> `pager` <br /> `next` <br /> `jumper` <br/> `sizes` | Specify this to change the layout of controls. |
 | `onCurrentPageChange` | `Function` | `false` | - | - | The callback function when the current page changes, passed in the current page number as a parameter. |
 | `onPageSizeChange` | `Function` | `false` | - | - | The callback function when the page size changes, passed in the current page size as a parameter. |
 
