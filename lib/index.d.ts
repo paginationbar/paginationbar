@@ -10,6 +10,14 @@ interface PagerRecord {
   type: PagerRecordType
 }
 
+type PaginationLayoutTypes =
+  | 'sizes'
+  | 'prev'
+  | 'pager'
+  | 'next'
+  | 'jumper'
+  | 'total'
+
 interface PaginationBarOptions {
   container: string | HTMLElement
 
@@ -33,6 +41,8 @@ interface PaginationBarOptions {
    * 总条目数
    */
   total?: number
+
+  layout?: string | PaginationLayoutTypes[]
 
   onCurrentPageChange?: (index: number) => void
 
@@ -79,6 +89,8 @@ interface PaginationBarInstance {
 
   render(): void
 
+  destory(): void
+
   setCurrentPage(index: number, reRender?: boolean): void
 
   setPageSize(size: number, reRender?: boolean): void
@@ -86,6 +98,22 @@ interface PaginationBarInstance {
   setTotal(value: number, reRender?: boolean): void
 
   setOptions(opts: PaginationBarOptions, reRender?: boolean): void
+
+  getLayout(): string[]
+
+  getLayoutHTML(): string
+
+  generatePager(): string
+
+  generatePrev(): string
+
+  generateNext(): string
+
+  generateSizes(): string
+
+  generateJumper(): string
+
+  generateTotal(): string
 }
 
 type CreatePaginationBar = (

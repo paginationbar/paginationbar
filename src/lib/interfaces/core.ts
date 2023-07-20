@@ -26,6 +26,8 @@ export type PaginationLayoutTypes =
 export interface PaginationBarOptions {
   container: string | HTMLElement
 
+  firstPageNumber?: number
+
   /**
    * 页码按钮的数量，当总页数超过该值时会折叠
    * 大于等于 5 且小于等于 21 的奇数

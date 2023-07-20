@@ -14,6 +14,7 @@ import MoreIconRaw from './icons/more.svg?raw'
 export class PaginationBar implements PaginationBarInstance {
   options: Required<PaginationBarOptions> = {
     container: '#pagination-bar-container',
+    firstPageNumber: 1,
     pagerCount: 7,
     currentPage: 1,
     pageSize: 10,
@@ -83,7 +84,9 @@ export class PaginationBar implements PaginationBarInstance {
 
     const pageNumber = this.options.currentPage - step
 
-    return pageNumber < 1 ? 1 : pageNumber
+    return pageNumber < this.options.firstPageNumber
+      ? this.options.firstPageNumber
+      : pageNumber
   }
 
   get mainPagerEnd() {
@@ -118,9 +121,12 @@ export class PaginationBar implements PaginationBarInstance {
     const res: PagerRecord[] = []
     const firstMainPager = this.mainPager[0]
 
-    if (firstMainPager && firstMainPager.pageNumber !== 1) {
+    if (
+      firstMainPager &&
+      firstMainPager.pageNumber !== this.options.firstPageNumber
+    ) {
       res.push({
-        pageNumber: 1,
+        pageNumber: this.options.firstPageNumber,
         type: 'first-page',
       })
 
@@ -232,11 +238,23 @@ export class PaginationBar implements PaginationBarInstance {
   }
 
   generatePrev() {
-    return `<button type="button" class="${CONSTANTS.prevButtonClassName}" role="prev-btn">${PrevIconRaw}</button>`
+    const disabled =
+      this.options.currentPage <= this.options.firstPageNumber
+        ? `disabled="disabled"`
+        : ''
+    const disabledClassName = disabled ? 'disabled' : ''
+
+    return `<button type="button" class="${CONSTANTS.prevButtonClassName} ${disabledClassName}" ${disabled} role="prev-btn">${PrevIconRaw}</button>`
   }
 
   generateNext() {
-    return `<button type="button" class="${CONSTANTS.nextButtonClassName}" role="next-btn">${NextIconRaw}</button>`
+    const disabled =
+      this.options.currentPage >= this.lastPageNumber
+        ? `disabled="disabled"`
+        : ''
+    const disabledClassName = disabled ? 'disabled' : ''
+
+    return `<button type="button" class="${CONSTANTS.nextButtonClassName} ${disabledClassName}" ${disabled} role="next-btn">${NextIconRaw}</button>`
   }
 
   generateSizes() {

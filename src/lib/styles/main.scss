@@ -13,74 +13,79 @@ $--text-color: #303133;
   color: $--text-color;
   font-weight: 700;
   font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
-}
 
-
-button {
-  border: none;
-  font-size: $--font-size;
-  min-width: $--number-min-width;
-  height: $--number-height;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  cursor: pointer;
-  background-color: transparent;
-
-  svg {
-    font-size: $--font-size;
-    fill: $--text-color;
-  }
-
-  &:hover {
-    svg {
-      fill: $--theme-color;
-    }
-  }
-}
-
-.pagination-bar {
-  &__pager {
-    display: flex;
-    align-items: center;
-    user-select: none;
-    list-style: none;
-    padding: 0;
-
-    &__number {
-      padding: 0 4px;
-      background: #fff;
-      font-size: $--font-size;
-      cursor: pointer;
-      box-sizing: border-box;
-      text-align: center;
-      margin: 0;
-      display: inline-flex;
-      justify-content: center;
+  .pagination-bar {
+    &__pager {
+      display: flex;
       align-items: center;
+      user-select: none;
+      list-style: none;
+      padding: 0;
+  
+      &__number {
+        padding: 0 4px;
+        background: #fff;
+        font-size: $--font-size;
+        cursor: pointer;
+        box-sizing: border-box;
+        text-align: center;
+        margin: 0;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        min-width: $--number-min-width;
+        height: $--number-height;
+  
+        &.active {
+          color: $--theme-color;
+          cursor: default;
+        }
+  
+        &:hover {
+          color: $--theme-color;
+        }
+  
+        svg {
+          font-size: $--font-size;
+        }
+      }
+    }
+    
+    &__total {
+      font-size: $--font-size;
+      font-weight: normal;
+      color: #606266;
+    }
+  
+    &__prev, &__next {
+      border: none;
+      font-size: $--font-size;
       min-width: $--number-min-width;
       height: $--number-height;
-
-      &.active {
-        color: $--theme-color;
-        cursor: default;
-      }
-
-      &:hover {
-        color: $--theme-color;
-      }
-
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      cursor: pointer;
+      background-color: transparent;
+  
       svg {
         font-size: $--font-size;
+        fill: $--text-color;
+      }
+    
+      &:hover {
+        svg {
+          fill: $--theme-color;
+        }
+      }
+  
+      &.disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
       }
     }
-  }
   
-  &__total {
-    font-size: $--font-size;
-    font-weight: normal;
-    color: #606266;
   }
-
 }
+
