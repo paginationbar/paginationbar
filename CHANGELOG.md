@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v0.0.4...v0.0.5)
+
+### 🚀 Enhancements
+
+- Jumper control ([a374209](https://github.com/paginationbar/paginationbar/commit/a374209))
+
+### 🔥 Performance
+
+- Upgrade prev and next page logic ([d0be43a](https://github.com/paginationbar/paginationbar/commit/d0be43a))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v0.0.4
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v0.0.3...v0.0.4)
