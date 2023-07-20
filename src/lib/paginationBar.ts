@@ -19,15 +19,27 @@ export class PaginationBar implements PaginationBarInstance {
     currentPage: 1,
     pageSize: 10,
     total: 0,
-    layout: 'prev,pager,next,total',
+    layout: 'total,prev,pager,next,jumper',
     onCurrentPageChange: () => {},
     onPageSizeChange: () => {},
   }
 
+  currentJumpNumber: number | '' = ''
+
   setCurrentPage(value: number, reRender: boolean = true) {
-    this.options.currentPage = value
+    let num = value
+
+    if (num < this.options.firstPageNumber) {
+      num = this.options.firstPageNumber
+    } else if (num > this.lastPageNumber) {
+      num = this.lastPageNumber
+    }
+
+    this.options.currentPage = num
     this.options?.onCurrentPageChange(this.options.currentPage)
     reRender && this.render()
+
+    return num
   }
 
   setPageSize(value: number, reRender: boolean = true) {
@@ -51,6 +63,7 @@ export class PaginationBar implements PaginationBarInstance {
     this.pagerListener = this.pagerListener.bind(this)
     this.prevBtnListener = this.prevBtnListener.bind(this)
     this.nextBtnListener = this.nextBtnListener.bind(this)
+    this.jumperListener = this.jumperListener.bind(this)
 
     this.render()
   }
@@ -176,7 +189,7 @@ export class PaginationBar implements PaginationBarInstance {
 
   getLayout() {
     if (typeof this.options.layout === 'string') {
-      return this.options.layout.split(',')
+      return this.options.layout.split(',').map((v) => v.trim())
     } else if (Array.isArray(this.options.layout)) {
       return this.options.layout
     }
@@ -258,11 +271,17 @@ export class PaginationBar implements PaginationBarInstance {
   }
 
   generateSizes() {
-    return ``
+    return `<div class="${CONSTANTS.sizesClassName}"></div>`
   }
 
   generateJumper() {
-    return ``
+    return `<div class="${CONSTANTS.jumperClassName}">
+      <span>前往</span>
+      <div class="pagination-bar__jumper__input">
+        <input type="number" value="${this.currentJumpNumber}"  autocomplete="off" min="${this.options.firstPageNumber}" max="${this.lastPageNumber}" class="pagination-bar__jumper__input-inner" />
+      </div>
+      <span>页</span>
+    </div>`
   }
 
   generateTotal() {
@@ -275,7 +294,7 @@ export class PaginationBar implements PaginationBarInstance {
     return el.dataset as PagerItemDataset
   }
 
-  pagerListener(e: MouseEvent) {
+  pagerListener(e: Event) {
     const el = e.target as HTMLElement
     const role = el.getAttribute('role')
 
@@ -296,10 +315,23 @@ export class PaginationBar implements PaginationBarInstance {
       this.setCurrentPage(this.options.currentPage + 1)
   }
 
+  jumperListener(e: Event) {
+    const el = e.target as HTMLInputElement
+
+    if (!el.value) {
+      this.currentJumpNumber = ''
+      return
+    }
+
+    this.currentJumpNumber = this.setCurrentPage(Number(el.value), false)
+    this.render()
+  }
+
   registerListeners() {
     this.removeListeners()
 
     const containerEl = this.getContainerEl()
+
     containerEl.addEventListener('click', this.pagerListener)
     containerEl
       .querySelector('button[role="prev-btn"]')
@@ -308,6 +340,10 @@ export class PaginationBar implements PaginationBarInstance {
     containerEl
       .querySelector('button[role="next-btn"]')
       ?.addEventListener('click', this.nextBtnListener)
+
+    containerEl
+      .querySelector('.pagination-bar__jumper__input-inner')
+      ?.addEventListener('change', this.jumperListener)
   }
 
   removeListeners() {

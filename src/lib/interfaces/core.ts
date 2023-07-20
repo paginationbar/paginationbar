@@ -59,6 +59,8 @@ export interface PaginationBarOptions {
 export interface PaginationBarInstance {
   options: PaginationBarOptions
 
+  currentJumpNumber: number | ''
+
   /**
    * 总页数
    */
@@ -98,7 +100,7 @@ export interface PaginationBarInstance {
 
   destory(): void
 
-  setCurrentPage(index: number, reRender?: boolean): void
+  setCurrentPage(index: number, reRender?: boolean): number
 
   setPageSize(size: number, reRender?: boolean): void
 

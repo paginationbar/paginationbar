@@ -5,4 +5,6 @@ export enum CONSTANTS {
   prevButtonClassName = 'pagination-bar__prev',
   nextButtonClassName = 'pagination-bar__next',
   totalClassName = 'pagination-bar__total',
+  jumperClassName = 'pagination-bar__jumper',
+  sizesClassName = 'pagination-bar__sizes',
 }
