@@ -33,6 +33,18 @@ interface PaginationBarOptions {
 
   layout?: string | PaginationLayoutTypes[]
 
+  prevText?: string
+
+  nextText?: string
+
+  jumperPrefixText?: string
+
+  jumperSuffixText?: string
+
+  totalPrefixText?: string
+
+  totalSuffixText?: string
+
   onCurrentPageChange?: (index: number) => void
 
   onPageSizeChange?: (size: number) => void

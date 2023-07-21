@@ -66,7 +66,7 @@ const paginationBar = createPaginationBar({
 | `jumperPrefixText` | `string` |  `'Go to'` | - | Specify this to change the prefix text of the **Jumper control**. |
 | `jumperSuffixText` | `string` |  `''` | - | Specify this to change the suffix text of the **Jumper control**. |
 | `totalPrefixText` | `string` |  `'Total'` | - | Specify this to change the prefix text of the **Total control**. |
-| `totalSuffixText` | `string` |  `'Total'` | - | Specify this to change the suffix text of the **Total control**. |
+| `totalSuffixText` | `string` |  `''` | - | Specify this to change the suffix text of the **Total control**. |
 | `firstPageNumber` | `number` |  `1` | - | Specify this to change the minimum page number of pagination bar. |
 | `pagerCount` | `number` |  `7` | - | Specify this to change the number of page number buttons that will collapse when the total number of pages exceeds this value. |
 | `currentPage` | `number` |  `1` | - | Initialize current page number. |
