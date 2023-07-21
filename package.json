@@ -7,16 +7,17 @@
     "email": "yisiwings@163.com"
   },
   "type": "module",
-  "main": "./lib/paginationbar.js",
-  "module": "./lib/paginationbar.mjs",
+  "main": "./lib/paginationbar.cjs",
+  "module": "./lib/paginationbar.js",
   "types": "./lib/index.d.ts",
   "exports": {
     ".": {
-      "require": "./lib/paginationbar.js",
-      "import": "./lib/paginationbar.mjs",
+      "require": "./lib/paginationbar.cjs",
+      "import": "./lib/paginationbar.js",
       "types": "./lib/index.d.ts"
     },
-    "./lib/style.css": "./lib/style.css"
+    "./lib/style.css": "./lib/style.css",
+    "./lib/themes/material/index.css": "./lib/themes/material/index.css"
   },
   "files": [
     "lib"
@@ -41,7 +42,7 @@
     "format": "prettier --write src/",
     "release": "npm run build:lib && npm run build:type && changelogen --release && npm publish --access=public && git push --follow-tags",
     "build:app": "cross-env BUILD_TYPE=app vite build",
-    "build:lib": "cross-env BUILD_TYPE=lib vite build",
+    "build:lib": "cross-env BUILD_TYPE=lib vite build && npm run build:type",
     "build:type": "rollup -c"
   },
   "devDependencies": {
@@ -64,6 +65,7 @@
     "prettier": "^2.8.4",
     "rollup": "^3.26.2",
     "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-scss": "^4.0.0",
     "sass": "^1.63.6",
     "typescript": "~4.8.4",
     "vite": "^4.1.4",

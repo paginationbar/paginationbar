@@ -23,25 +23,12 @@ interface PaginationBarOptions {
 
   firstPageNumber?: number
 
-  /**
-   * 页码按钮的数量，当总页数超过该值时会折叠
-   * 大于等于 5 且小于等于 21 的奇数
-   */
   pagerCount?: number
 
-  /**
-   * 当前页码
-   */
   currentPage?: number
 
-  /**
-   * 每页显示条目个数
-   */
   pageSize?: number
 
-  /**
-   * 总条目数
-   */
   total?: number
 
   layout?: string | PaginationLayoutTypes[]
@@ -56,29 +43,16 @@ interface PaginationBarInstance {
 
   currentJumpNumber: number | ''
 
-  /**
-   * 总页数
-   */
   get pageCount(): number
-  /**
-   * 最后一页页码
-   */
+
   get lastPageNumber(): number
-  /**
-   * 主页码显示个数
-   */
+
   get mainPagerCount(): number
 
   get mainPagerGap(): number
 
-  /**
-   * 主页码起始页码
-   */
   get mainPagerStart(): number
 
-  /**
-   * 主页码结束页码
-   */
   get mainPagerEnd(): number
 
   get mainPager(): PagerRecord[]
