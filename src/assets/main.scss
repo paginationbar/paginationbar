@@ -1,0 +1,54 @@
+@import './base.css';
+
+.button {
+  &--primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 16px;
+    color: var(--theme-primary-color);
+    border: 1px solid var(--theme-primary-color);
+    border-radius: 4px;
+    outline: none;
+    text-decoration: none;
+    transition: all .15s;
+  
+    &:visited {
+      color: var(--theme-primary-color);
+    }
+  
+    &:hover,
+    &:focus-visible {
+      color: #fff;
+      background: var(--theme-primary-color);
+  
+      svg {
+        fill: #fff;
+      }
+    }
+  
+    & > svg {
+      font-size: 24px;
+      fill:  var(--theme-primary-color);
+  
+  
+    }
+  }
+}
+
+.inline-code {
+  display: inline-block;
+  background-color: var(--theme-primary-color);
+  color: #fff;
+  font-size: 12px;
+  padding: 0px 6px;
+  border-radius: 4px;
+}
+
+:root {
+  --theme-font-family: fangsong, math;
+  --theme-text-color: #7b7b82;
+  --theme-title-color: #222222;
+}
+
+

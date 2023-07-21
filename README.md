@@ -9,11 +9,9 @@
 </p>
 
 
-> :construction: Under active development, no official release yet. :construction:
-
 # paginationbar
 
-A pagination bar for web app.
+A pagination bar for web app. See [example](https://paginationbar.github.io/paginationbar/) here.
 
 # Features
 
@@ -36,7 +34,7 @@ $ npm i paginationbar
 
 # Usage
 
-1. Import the style.
+1. Import the style of default theme.
 
 ```ts
 import 'paginationbar/lib/style.css'

@@ -3,6 +3,7 @@ import type {
   PaginationBarOptions,
   PaginationBarInstance,
   PagerItemDataset,
+  CreatePaginationBar,
 } from './interfaces/core'
 import { ERRORS } from './ERRORS'
 import { CONSTANTS } from './CONSTANTS'
@@ -19,7 +20,7 @@ export class PaginationBar implements PaginationBarInstance {
     currentPage: 1,
     pageSize: 10,
     total: 0,
-    layout: 'total,prev,pager,next,jumper',
+    layout: 'prev,pager,next',
     onCurrentPageChange: () => {},
     onPageSizeChange: () => {},
   }
@@ -373,4 +374,8 @@ export class PaginationBar implements PaginationBarInstance {
   destory() {
     this.removeListeners()
   }
+}
+
+export const createPaginationBar: CreatePaginationBar = (opts) => {
+  return new PaginationBar(opts)
 }

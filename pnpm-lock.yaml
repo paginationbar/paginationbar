@@ -52,6 +52,9 @@ devDependencies:
   prettier:
     specifier: ^2.8.4
     version: 2.8.4
+  prismjs:
+    specifier: ^1.29.0
+    version: 1.29.0
   rollup:
     specifier: ^3.26.2
     version: 3.26.2
@@ -3552,6 +3555,11 @@ packages:
       ansi-regex: 5.0.1
       ansi-styles: 5.2.0
       react-is: 17.0.2
+    dev: true
+
+  /prismjs@1.29.0:
+    resolution: {integrity: sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==}
+    engines: {node: '>=6'}
     dev: true
 
   /proto-list@1.2.4:
