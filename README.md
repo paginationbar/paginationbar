@@ -54,23 +54,24 @@ import 'paginationbar/lib/style.css'
 import { createPaginationBar } from 'paginationbar'
 
 const paginationBar = createPaginationBar({
+  container: '#pagination-bar-container'
   // Some options ...
 })
 ```
 
 # Options
-| Prop | Type | Required | Default value | Available values | Description |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| `container` | `string` <br /> `HTMLElement` | `true` | `#pagination-bar-container` | - | Specify this to change the container. |
-| `firstPageNumber` | `number` | `false` | `1` | - | Specify this to change the minimum page number of pagination bar. |
-| `pagerCount` | `number` | `false` | `7` | - | Specify this to change the number of page number buttons that will collapse when the total number of pages exceeds this value. |
-| `currentPage` | `number` | `false` | `1` | - | Initialize current page number. |
-| `pageSize` | `number` | `false` | `10` | - | Initialize the number of displayed entries per page. |
-| `total` | `number` | `false` | `0` | - | Initialize total number of entries. |
-| `layout` | `string` <br /> `string[]` | `false` | `prev,pager,next` | `total` <br /> `prev` <br/> `pager` <br /> `next` <br /> `jumper` <br/> `sizes` | Specify this to change the layout of controls. |
-| `onCurrentPageChange` | `Function` | `false` | - | - | The callback function when the current page changes, passed in the current page number as a parameter. |
-| `onPageSizeChange` | `Function` | `false` | - | - | The callback function when the page size changes, passed in the current page size as a parameter. |
+| Prop | Type | Default value | Available values | Description |
+| :---: | :---: | :---: | :---: | :---: |
+| `container` | `string` <br /> `HTMLElement` |  `#pagination-bar-container` | - | Specify this to change the container. |
+| `firstPageNumber` | `number` |  `1` | - | Specify this to change the minimum page number of pagination bar. |
+| `pagerCount` | `number` |  `7` | - | Specify this to change the number of page number buttons that will collapse when the total number of pages exceeds this value. |
+| `currentPage` | `number` |  `1` | - | Initialize current page number. |
+| `pageSize` | `number` |  `10` | - | Initialize the number of displayed entries per page. |
+| `total` | `number` |  `0` | - | Initialize total number of entries. |
+| `layout` | `string` <br /> `string[]` |  `prev,pager,next` | `total` <br /> `prev` <br/> `pager` <br /> `next` <br /> `jumper` <br/> `sizes` | Specify this to change the layout of controls. |
+| `onCurrentPageChange` | `Function` | - | - | The **callback function** when the **current page** changes, passed in the `currentPage` as a parameter. |
+| `onPageSizeChange` | `Function` | - | - | The **callback function** when the **page size** changes, passed in the current `pageSize` as a parameter. |
 
-# Change Logs
+# CHANGE LOGS
 
-see [here](./CHANGELOG.md)
+See [CHANGE LOG](./CHANGELOG.md).
