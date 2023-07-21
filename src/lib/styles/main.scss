@@ -76,6 +76,7 @@ $--text-color--secondary: #606266;
       box-sizing: border-box;
       cursor: pointer;
       background-color: transparent;
+      color: $--text-color--secondary;
 
       svg {
         font-size: $--font-size;
@@ -83,6 +84,7 @@ $--text-color--secondary: #606266;
       }
 
       &:hover {
+        color: $--theme-color;
         svg {
           fill: $--theme-color;
         }

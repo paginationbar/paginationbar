@@ -21,6 +21,8 @@ export class PaginationBar implements PaginationBarInstance {
     pageSize: 10,
     total: 0,
     layout: 'prev,pager,next',
+    prevText: '',
+    nextText: '',
     onCurrentPageChange: () => {},
     onPageSizeChange: () => {},
   }
@@ -258,7 +260,9 @@ export class PaginationBar implements PaginationBarInstance {
         : ''
     const disabledClassName = disabled ? 'disabled' : ''
 
-    return `<button type="button" class="${CONSTANTS.prevButtonClassName} ${disabledClassName}" ${disabled} role="prev-btn">${PrevIconRaw}</button>`
+    const text = this.options.prevText ? this.options.prevText : PrevIconRaw
+
+    return `<button type="button" class="${CONSTANTS.prevButtonClassName} ${disabledClassName}" ${disabled} role="prev-btn">${text}</button>`
   }
 
   generateNext() {
@@ -268,7 +272,9 @@ export class PaginationBar implements PaginationBarInstance {
         : ''
     const disabledClassName = disabled ? 'disabled' : ''
 
-    return `<button type="button" class="${CONSTANTS.nextButtonClassName} ${disabledClassName}" ${disabled} role="next-btn">${NextIconRaw}</button>`
+    const text = this.options.nextText ? this.options.nextText : NextIconRaw
+
+    return `<button type="button" class="${CONSTANTS.nextButtonClassName} ${disabledClassName}" ${disabled} role="next-btn">${text}</button>`
   }
 
   generateSizes() {

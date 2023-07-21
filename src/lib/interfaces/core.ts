@@ -38,6 +38,10 @@ export interface PaginationBarOptions {
 
   layout?: string | PaginationLayoutTypes[]
 
+  prevText?: string
+
+  nextText?: string
+
   onCurrentPageChange?: (index: number) => void
 
   onPageSizeChange?: (size: number) => void

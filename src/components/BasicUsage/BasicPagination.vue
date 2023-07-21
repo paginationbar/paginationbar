@@ -18,6 +18,8 @@ const init = () => {
       container: paginationBarContainer.value,
       layout: 'prev,pager,next',
       total: 300,
+      // prevText: '上一页',
+      // nextText: '下一页',
     })
   }
 }

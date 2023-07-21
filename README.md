@@ -61,6 +61,8 @@ const paginationBar = createPaginationBar({
 | Prop | Type | Default value | Available values | Description |
 | :---: | :---: | :---: | :---: | :---: |
 | `container` | `string` <br /> `HTMLElement` |  `#pagination-bar-container` | - | Specify this to change the container. |
+| `prevText` | `string` |  `''` | - | Replace **prev icon** with custom text. |
+| `nextText` | `string` |  `''` | - | Replace **next icon** with custom text. |
 | `firstPageNumber` | `number` |  `1` | - | Specify this to change the minimum page number of pagination bar. |
 | `pagerCount` | `number` |  `7` | - | Specify this to change the number of page number buttons that will collapse when the total number of pages exceeds this value. |
 | `currentPage` | `number` |  `1` | - | Initialize current page number. |
