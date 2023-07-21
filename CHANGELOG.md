@@ -1,6 +1,25 @@
 # Changelog
 
 
+## v1.1.0
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v0.0.5...v1.1.0)
+
+### 🚀 Enhancements
+
+- Support themes build ([7a86b40](https://github.com/paginationbar/paginationbar/commit/7a86b40))
+- Release v1 and update example site ([f659385](https://github.com/paginationbar/paginationbar/commit/f659385))
+
+### 🏡 Chore
+
+- **docs:** Update readme ([4b04594](https://github.com/paginationbar/paginationbar/commit/4b04594))
+- **docs:** Update readme ([27b7185](https://github.com/paginationbar/paginationbar/commit/27b7185))
+- **docs:** Update readme ([4d90b69](https://github.com/paginationbar/paginationbar/commit/4d90b69))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v0.0.5
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v0.0.4...v0.0.5)
