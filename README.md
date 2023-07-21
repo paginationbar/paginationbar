@@ -63,8 +63,10 @@ const paginationBar = createPaginationBar({
 | `container` | `string` <br /> `HTMLElement` |  `#pagination-bar-container` | - | Specify this to change the container. |
 | `prevText` | `string` |  `''` | - | Replace **prev icon** with custom text. |
 | `nextText` | `string` |  `''` | - | Replace **next icon** with custom text. |
-| `jumperPrefixText` | `string` |  `'Go to'` | - | Specify this to change the prefix text of the jumper control. |
-| `jumperSuffixText` | `string` |  `''` | - | Specify this to change the suffix text of the jumper control. |
+| `jumperPrefixText` | `string` |  `'Go to'` | - | Specify this to change the prefix text of the **Jumper control**. |
+| `jumperSuffixText` | `string` |  `''` | - | Specify this to change the suffix text of the **Jumper control**. |
+| `totalPrefixText` | `string` |  `'Total'` | - | Specify this to change the prefix text of the **Total control**. |
+| `totalSuffixText` | `string` |  `'Total'` | - | Specify this to change the suffix text of the **Total control**. |
 | `firstPageNumber` | `number` |  `1` | - | Specify this to change the minimum page number of pagination bar. |
 | `pagerCount` | `number` |  `7` | - | Specify this to change the number of page number buttons that will collapse when the total number of pages exceeds this value. |
 | `currentPage` | `number` |  `1` | - | Initialize current page number. |

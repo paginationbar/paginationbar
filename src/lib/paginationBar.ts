@@ -25,6 +25,8 @@ export class PaginationBar implements PaginationBarInstance {
     nextText: '',
     jumperPrefixText: 'Go to',
     jumperSuffixText: '',
+    totalPrefixText: 'Total',
+    totalSuffixText: '',
     onCurrentPageChange: () => {},
     onPageSizeChange: () => {},
   }
@@ -294,7 +296,8 @@ export class PaginationBar implements PaginationBarInstance {
   }
 
   generateTotal() {
-    const text = `共 ${this.options.total} 条`
+    const text =
+      `${this.options.totalPrefixText} ${this.options.total} ${this.options.totalSuffixText}`.trim()
 
     return `<span class="${CONSTANTS.totalClassName}">${text}</span>`
   }
