@@ -23,6 +23,8 @@ export class PaginationBar implements PaginationBarInstance {
     layout: 'prev,pager,next',
     prevText: '',
     nextText: '',
+    jumperPrefixText: 'Go to',
+    jumperSuffixText: '',
     onCurrentPageChange: () => {},
     onPageSizeChange: () => {},
   }
@@ -283,11 +285,11 @@ export class PaginationBar implements PaginationBarInstance {
 
   generateJumper() {
     return `<div class="${CONSTANTS.jumperClassName}">
-      <span>前往</span>
+      <span>${this.options.jumperPrefixText}</span>
       <div class="pagination-bar__jumper__input">
         <input type="number" value="${this.currentJumpNumber}"  autocomplete="off" min="${this.options.firstPageNumber}" max="${this.lastPageNumber}" class="pagination-bar__jumper__input-inner" />
       </div>
-      <span>页</span>
+      <span>${this.options.jumperSuffixText}</span>
     </div>`
   }
 

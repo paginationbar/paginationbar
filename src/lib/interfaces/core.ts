@@ -42,6 +42,10 @@ export interface PaginationBarOptions {
 
   nextText?: string
 
+  jumperPrefixText?: string
+
+  jumperSuffixText?: string
+
   onCurrentPageChange?: (index: number) => void
 
   onPageSizeChange?: (size: number) => void
