@@ -11,7 +11,7 @@
 
 # paginationbar
 
-A pagination bar for web app. See [example](https://paginationbar.github.io/paginationbar/) here.
+A pagination bar library for web app. See [example](https://paginationbar.github.io/paginationbar/) here.
 
 # Features
 
