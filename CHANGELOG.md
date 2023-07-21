@@ -1,6 +1,20 @@
 # Changelog
 
 
+## v1.2.0
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v1.1.0...v1.2.0)
+
+### 🚀 Enhancements
+
+- Support prevText and nextText ([9ddd17f](https://github.com/paginationbar/paginationbar/commit/9ddd17f))
+- Add jumperPrefixText and jumperSuffixText config ([35f8aca](https://github.com/paginationbar/paginationbar/commit/35f8aca))
+- Add totalPrefixText and totalSuffixText config ([11fdd1b](https://github.com/paginationbar/paginationbar/commit/11fdd1b))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.1.0
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v0.0.5...v1.1.0)
