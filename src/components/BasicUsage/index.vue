@@ -25,7 +25,7 @@
 
       <BasicPagination />
 
-      <template #code> {{ BasicPaginationRaw }} </template>
+      <template #code> {{ CodeRaw }} </template>
     </DemoPanel>
   </div>
 </template>
@@ -33,7 +33,7 @@
 <script lang="ts" setup>
 import DemoPanel from '../DemoPanel.vue'
 import BasicPagination from './BasicPagination.vue'
-import BasicPaginationRaw from './BasicPagination.vue?raw'
+import CodeRaw from './BasicPagination.vue?raw'
 </script>
 
 <script lang="ts">

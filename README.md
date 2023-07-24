@@ -63,18 +63,46 @@ const paginationBar = createPaginationBar({
 | `container` | `string` <br /> `HTMLElement` |  `#pagination-bar-container` | - | Specify this to change the container. |
 | `prevText` | `string` |  `''` | - | Replace **prev icon** with custom text. |
 | `nextText` | `string` |  `''` | - | Replace **next icon** with custom text. |
-| `jumperPrefixText` | `string` |  `'Go to'` | - | Specify this to change the prefix text of the **Jumper control**. |
-| `jumperSuffixText` | `string` |  `''` | - | Specify this to change the suffix text of the **Jumper control**. |
-| `totalPrefixText` | `string` |  `'Total'` | - | Specify this to change the prefix text of the **Total control**. |
-| `totalSuffixText` | `string` |  `''` | - | Specify this to change the suffix text of the **Total control**. |
+| `jumperPrefixText` | `string` |  `'Go to'` | - | Specify this to change the prefix text of the **jumper control**. |
+| `jumperSuffixText` | `string` |  `''` | - | Specify this to change the suffix text of the **jumper control**. |
+| `totalPrefixText` | `string` |  `'Total'` | - | Specify this to change the prefix text of the **total control**. |
+| `totalSuffixText` | `string` |  `''` | - | Specify this to change the suffix text of the **total control**. |
 | `firstPageNumber` | `number` |  `1` | - | Specify this to change the minimum page number of pagination bar. |
 | `pagerCount` | `number` |  `7` | - | Specify this to change the number of page number buttons that will collapse when the total number of pages exceeds this value. |
 | `currentPage` | `number` |  `1` | - | Initialize current page number. |
 | `pageSize` | `number` |  `10` | - | Initialize the number of displayed entries per page. |
+| `pageSizes` | `number[]` |  `[10,20,30,40,50,100]` | - | Define options of **sizes control**. |
+| `sizesOptionLabel` | `(size: number) => string` | - | - | Customize the label content of sizes options. |
 | `total` | `number` |  `0` | - | Initialize total number of entries. |
 | `layout` | `string` <br /> `string[]` |  `prev,pager,next` | `total` <br /> `prev` <br/> `pager` <br /> `next` <br /> `jumper` <br/> `sizes` | Specify this to change the layout of controls. |
 | `onCurrentPageChange` | `Function` | - | - | The **callback function** when the **current page** changes, passed in the `currentPage` as a parameter. |
 | `onPageSizeChange` | `Function` | - | - | The **callback function** when the **page size** changes, passed in the current `pageSize` as a parameter. |
+
+# PaginationBar instance
+## Methods
+### setCurrentPage
+
+You can use this to change `currentPage` after pagination bar initialization. and it will return a safty page number.
+
+```ts
+paginationBar.setCurrentPage(2)
+```
+
+### setPageSize
+
+You can use this to change `pageSize` after pagination bar initialization. and it will also return a safty page size number.
+
+```ts
+paginationBar.setPageSize(20)
+```
+
+### setTotal
+
+You can use this to change `total` after pagination bar initialization. 
+
+```ts
+paginationBar.setTotal(500)
+```
 
 # CHANGE LOGS
 

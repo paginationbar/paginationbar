@@ -21,6 +21,10 @@ export class PaginationBar implements PaginationBarInstance {
     pageSize: 10,
     total: 0,
     layout: 'prev,pager,next',
+    pageSizes: [10, 20, 30, 40, 50, 100],
+    sizesOptionLabel: (size) => {
+      return `${size}/page`
+    },
     prevText: '',
     nextText: '',
     jumperPrefixText: 'Go to',
@@ -32,6 +36,7 @@ export class PaginationBar implements PaginationBarInstance {
   }
 
   currentJumpNumber: number | '' = ''
+  selectedPageSize = this.options.pageSize
 
   setCurrentPage(value: number, reRender: boolean = true) {
     let num = value
@@ -50,9 +55,18 @@ export class PaginationBar implements PaginationBarInstance {
   }
 
   setPageSize(value: number, reRender: boolean = true) {
-    this.options.pageSize = value
+    let num = value
+
+    if (num > this.options.total) {
+      num = this.options.total
+    }
+
+    this.selectedPageSize = num
+    this.options.pageSize = num
     this.options?.onPageSizeChange(this.options.pageSize)
     reRender && this.render()
+
+    return num
   }
 
   setTotal(value: number, reRender: boolean = true) {
@@ -67,10 +81,14 @@ export class PaginationBar implements PaginationBarInstance {
 
   constructor(opts?: PaginationBarOptions) {
     this.options = Object.assign(this.options, opts)
+
+    this.selectedPageSize = this.options.pageSize
+
     this.pagerListener = this.pagerListener.bind(this)
     this.prevBtnListener = this.prevBtnListener.bind(this)
     this.nextBtnListener = this.nextBtnListener.bind(this)
     this.jumperListener = this.jumperListener.bind(this)
+    this.sizesListener = this.sizesListener.bind(this)
 
     this.render()
   }
@@ -282,14 +300,25 @@ export class PaginationBar implements PaginationBarInstance {
   }
 
   generateSizes() {
-    return `<div class="${CONSTANTS.sizesClassName}"></div>`
+    const selectOptions = this.options.pageSizes
+      .map((v) => {
+        const selected = this.selectedPageSize === v ? 'selected' : ''
+        return `<option value="${v}" ${selected}>${this.options.sizesOptionLabel(
+          v
+        )}</option>`
+      })
+      .join('')
+
+    return `<div class="${CONSTANTS.sizesClassName}">
+      <select class="${CONSTANTS.sizesClassName}__select">${selectOptions}</select>
+    </div>`
   }
 
   generateJumper() {
     return `<div class="${CONSTANTS.jumperClassName}">
       <span>${this.options.jumperPrefixText}</span>
-      <div class="pagination-bar__jumper__input">
-        <input type="number" value="${this.currentJumpNumber}"  autocomplete="off" min="${this.options.firstPageNumber}" max="${this.lastPageNumber}" class="pagination-bar__jumper__input-inner" />
+      <div class="${CONSTANTS.jumperClassName}__input">
+        <input type="number" value="${this.currentJumpNumber}"  autocomplete="off" min="${this.options.firstPageNumber}" max="${this.lastPageNumber}" class="${CONSTANTS.jumperClassName}__input-inner" />
       </div>
       <span>${this.options.jumperSuffixText}</span>
     </div>`
@@ -339,6 +368,18 @@ export class PaginationBar implements PaginationBarInstance {
     this.render()
   }
 
+  sizesListener(e: Event) {
+    const el = e.target as HTMLInputElement
+
+    if (!el.value) {
+      this.selectedPageSize = this.options.pageSize
+      return
+    }
+
+    this.selectedPageSize = this.setPageSize(Number(el.value), false)
+    this.render()
+  }
+
   registerListeners() {
     this.removeListeners()
 
@@ -354,8 +395,12 @@ export class PaginationBar implements PaginationBarInstance {
       ?.addEventListener('click', this.nextBtnListener)
 
     containerEl
-      .querySelector('.pagination-bar__jumper__input-inner')
+      .querySelector(`.${CONSTANTS.jumperClassName}__input-inner`)
       ?.addEventListener('change', this.jumperListener)
+
+    containerEl
+      .querySelector(`.${CONSTANTS.sizesClassName}__select`)
+      ?.addEventListener('change', this.sizesListener)
   }
 
   removeListeners() {
@@ -368,6 +413,14 @@ export class PaginationBar implements PaginationBarInstance {
     containerEl
       .querySelector('button[role="next-btn"]')
       ?.removeEventListener('click', this.nextBtnListener)
+
+    containerEl
+      .querySelector(`.${CONSTANTS.jumperClassName}__input-inner`)
+      ?.removeEventListener('change', this.jumperListener)
+
+    containerEl
+      .querySelector(`.${CONSTANTS.sizesClassName}__select`)
+      ?.removeEventListener('change', this.sizesListener)
   }
 
   render() {

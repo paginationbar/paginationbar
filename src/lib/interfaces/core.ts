@@ -38,6 +38,10 @@ export interface PaginationBarOptions {
 
   layout?: string | PaginationLayoutTypes[]
 
+  pageSizes?: number[]
+
+  sizesOptionLabel?: (size: number) => string
+
   prevText?: string
 
   nextText?: string
@@ -88,7 +92,7 @@ export interface PaginationBarInstance {
 
   setCurrentPage(index: number, reRender?: boolean): number
 
-  setPageSize(size: number, reRender?: boolean): void
+  setPageSize(size: number, reRender?: boolean): number
 
   setTotal(value: number, reRender?: boolean): void
 

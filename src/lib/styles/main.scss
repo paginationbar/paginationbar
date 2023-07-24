@@ -1,18 +1,19 @@
-$--theme-color: #409eff;
-$--number-min-width: 35.5px;
-$--number-height: 28px;
-$--font-size: 13px;
-$--text-color: #303133;
-$--text-color--secondary: #606266;
-
 .pagination-bar-container {
+  --theme-color: #409eff;
+  --theme-number-min-width: 35.5px;
+  --theme-number-height: 28px;
+  --theme-font-size: 13px;
+  --theme-text-color: #303133;
+  --theme-text-color--secondary: #606266;
+  --theme-font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, SimSun, sans-serif;
+
   display: flex;
   align-items: center;
   white-space: nowrap;
   padding: 2px 5px;
-  color: $--text-color;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
-    Microsoft YaHei, SimSun, sans-serif;
+  color: var(--theme-text-color);
+  font-family: var(--theme-font-family);
 
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button,
@@ -32,7 +33,7 @@ $--text-color--secondary: #606266;
       &__number {
         padding: 0 4px;
         background: #fff;
-        font-size: $--font-size;
+        font-size: var(--theme-font-size);
         cursor: pointer;
         box-sizing: border-box;
         text-align: center;
@@ -40,53 +41,53 @@ $--text-color--secondary: #606266;
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        min-width: $--number-min-width;
-        height: $--number-height;
+        min-width: var(--theme-number-min-width);
+        height: var(--theme-number-height);
 
         &.active {
-          color: $--theme-color;
+          color: var(--theme-color);
           cursor: default;
         }
 
         &:hover {
-          color: $--theme-color;
+          color: var(--theme-color);
         }
 
         svg {
-          font-size: $--font-size;
+          font-size: var(--theme-font-size);
         }
       }
     }
 
     &__total {
-      font-size: $--font-size;
+      font-size: var(--theme-font-size);
       font-weight: normal;
-      color: $--text-color--secondary;
+      color: var(--theme-text-color--secondary);
     }
 
     &__prev,
     &__next {
       border: none;
-      font-size: $--font-size;
-      min-width: $--number-min-width;
-      height: $--number-height;
+      font-size: var(--theme-font-size);
+      min-width: var(--theme-number-min-width);
+      height: var(--theme-number-height);
       display: flex;
       justify-content: center;
       align-items: center;
       box-sizing: border-box;
       cursor: pointer;
       background-color: transparent;
-      color: $--text-color--secondary;
+      color: var(--theme-text-color--secondary);
 
       svg {
-        font-size: $--font-size;
-        fill: $--text-color;
+        font-size: var(--theme-font-size);
+        fill: var(--theme-text-color);
       }
 
       &:hover {
-        color: $--theme-color;
+        color: var(--theme-color);
         svg {
-          fill: $--theme-color;
+          fill: var(--theme-color);
         }
       }
 
@@ -99,12 +100,12 @@ $--text-color--secondary: #606266;
     &__jumper {
       display: flex;
       align-items: center;
-      font-size: $--font-size;
-      color: $--text-color--secondary;
+      font-size: var(--theme-font-size);
+      color: var(--theme-text-color--secondary);
       font-weight: normal;
 
       &__input {
-        height: $--number-height;
+        height: var(--theme-number-height);
         width: 50px;
         margin: 0 4px;
       }
@@ -115,7 +116,7 @@ $--text-color--secondary: #606266;
         border-radius: 4px;
         border: 1px solid #dcdfe6;
         box-sizing: border-box;
-        color: $--text-color--secondary;
+        color: var(--theme-text-color--secondary);
         display: inline-block;
         font-size: inherit;
         outline: none;
@@ -125,7 +126,25 @@ $--text-color--secondary: #606266;
         text-align: center;
 
         &:focus {
-          border-color: $--theme-color;
+          border-color: var(--theme-color);
+        }
+      }
+    }
+
+    &__sizes {
+      margin: 0 4px;
+      &__select {
+        display: block;
+        border: 1px solid #dcdfe6;
+        transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+        outline: none;
+        padding: 4px 16px 4px 12px;
+        cursor: pointer;
+        color: var(--theme-text-color--secondary);
+        border-radius: 4px;
+
+        &:hover {
+          border-color: var(--theme-color);
         }
       }
     }

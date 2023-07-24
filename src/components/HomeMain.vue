@@ -13,6 +13,9 @@
       <JumperUsage />
     </div>
     <div class="features-item">
+      <SizesUsage />
+    </div>
+    <div class="features-item">
       <PrevNextUsage />
     </div>
   </main>
@@ -24,6 +27,7 @@ import PagerCountUsage from '@/components/PagerCountUsage/index.vue'
 import TotalCountUsage from '@/components/TotalUsage/index.vue'
 import JumperUsage from '@/components/JumperUsage/index.vue'
 import PrevNextUsage from '@/components/PrevNextUsage/index.vue'
+import SizesUsage from '@/components/SizesUsage/index.vue'
 </script>
 
 <style lang="scss" scoped>
