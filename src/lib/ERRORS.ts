@@ -1,3 +1,3 @@
 export enum ERRORS {
-  getContainerElError = 'Can not find container elemet.',
+  getContainerElError = 'Can not find container element.',
 }

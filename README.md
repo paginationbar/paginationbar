@@ -61,6 +61,7 @@ const paginationBar = createPaginationBar({
 | Prop | Type | Default value | Available values | Description |
 | :---: | :---: | :---: | :---: | :---: |
 | `container` | `string` <br /> `HTMLElement` |  `#pagination-bar-container` | - | Specify this to change the container. |
+| `theme` | `string` |  `element` | - | Specify this to change the theme. |
 | `prevText` | `string` |  `''` | - | Replace **prev icon** with custom text. |
 | `nextText` | `string` |  `''` | - | Replace **next icon** with custom text. |
 | `jumperPrefixText` | `string` |  `'Go to'` | - | Specify this to change the prefix text of the **jumper control**. |

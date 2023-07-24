@@ -23,8 +23,12 @@ export type PaginationLayoutTypes =
   | 'jumper'
   | 'total'
 
+export type PaginationThemes = 'element' | 'material'
+
 export interface PaginationBarOptions {
   container: string | HTMLElement
+
+  theme?: PaginationThemes
 
   firstPageNumber?: number
 

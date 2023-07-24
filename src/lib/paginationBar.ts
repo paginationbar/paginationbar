@@ -15,6 +15,7 @@ import MoreIconRaw from './icons/more.svg?raw'
 export class PaginationBar implements PaginationBarInstance {
   options: Required<PaginationBarOptions> = {
     container: '#pagination-bar-container',
+    theme: 'element',
     firstPageNumber: 1,
     pagerCount: 7,
     currentPage: 1,
@@ -81,14 +82,17 @@ export class PaginationBar implements PaginationBarInstance {
 
   constructor(opts?: PaginationBarOptions) {
     this.options = Object.assign(this.options, opts)
-
     this.selectedPageSize = this.options.pageSize
-
     this.pagerListener = this.pagerListener.bind(this)
     this.prevBtnListener = this.prevBtnListener.bind(this)
     this.nextBtnListener = this.nextBtnListener.bind(this)
     this.jumperListener = this.jumperListener.bind(this)
     this.sizesListener = this.sizesListener.bind(this)
+
+    const container = this.getContainerEl()
+
+    addClass(container, CONSTANTS.containerClassName)
+    addClass(container, `theme--${this.options.theme}`)
 
     this.render()
   }
@@ -425,8 +429,6 @@ export class PaginationBar implements PaginationBarInstance {
 
   render() {
     const container = this.getContainerEl()
-
-    addClass(container, CONSTANTS.containerClassName)
 
     const htmlContent = this.getLayoutHTML()
 
