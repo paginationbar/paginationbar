@@ -18,6 +18,8 @@ const init = () => {
       container: paginationBarContainer.value,
       layout: 'prev,pager,next',
       total: 300,
+      prevText: 'Prev',
+      nextText: 'Next',
     })
   }
 }

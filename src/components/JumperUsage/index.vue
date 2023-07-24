@@ -3,7 +3,8 @@
     <DemoPanel title="Go directly to a certain page number">
       <template #description>
         Enable the <strong>jumper control</strong> by adding
-        <code>jumper</code> to the <code>layout</code> configuration.
+        <code class="lang-js">jumper</code> to the
+        <code class="lang-js">layout</code> configuration.
       </template>
 
       <JumperPagination />

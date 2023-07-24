@@ -15,7 +15,7 @@ A pagination bar library for web app. See [example](https://paginationbar.github
 
 # Features
 
-- Built-in themes(element , material) design.
+- Built-in themes(element , material) design and more.
 - Does not depend on any **third-party** library.
 - Support **Typescript**.
 

@@ -2,10 +2,11 @@
   <div class="">
     <DemoPanel title="Set maximum number of page buttons">
       <template #description>
-        By default, when the total number of pages exceeds <code>7</code>,
-        <strong>Pagination</strong> will collapse the extra page number button.
-        The maximum number of page number buttons can be set through the
-        <code>pagerCount</code> attribute.
+        By default, when the total number of pages exceeds
+        <code class="lang-js">7</code>. <strong>Pagination</strong> will
+        collapse the extra page number button. The maximum number of page number
+        buttons can be set through the
+        <code class="lang-js">pagerCount</code> attribute.
       </template>
 
       <PagerCountPagination />

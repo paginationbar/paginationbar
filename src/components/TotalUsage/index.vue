@@ -3,7 +3,8 @@
     <DemoPanel title="Display the Total Control">
       <template #description>
         Enable the <strong>total control</strong> by adding
-        <code>total</code> to the <code>layout</code> configuration.
+        <code class="lang-js">total</code> to the
+        <code class="lang-js">layout</code> configuration.
       </template>
 
       <TotalPagination />
