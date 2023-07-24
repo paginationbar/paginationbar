@@ -1,6 +1,20 @@
 # Changelog
 
 
+## v1.2.1
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v1.2.0...v1.2.1)
+
+### 🏡 Chore
+
+- **docs:** Update readme ([8e5b4be](https://github.com/paginationbar/paginationbar/commit/8e5b4be))
+- Update readme ([5fdcb48](https://github.com/paginationbar/paginationbar/commit/5fdcb48))
+- **example:** Update example and upgrade jumper style ([d7bf43d](https://github.com/paginationbar/paginationbar/commit/d7bf43d))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.2.0
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v1.1.0...v1.2.0)
