@@ -11,7 +11,7 @@
 
 # paginationbar
 
-A pagination bar library for web app. See [example](https://paginationbar.github.io/paginationbar/) here.
+A modern pagination bar library for web app. See [example](https://paginationbar.github.io/paginationbar/) here.
 
 # Features
 
@@ -34,13 +34,20 @@ $ npm i paginationbar
 
 # Usage
 
-1. Import the style of default theme.
+1. Import the style for themes.
 
 ```ts
+// Include all themes
 import 'paginationbar/lib/style.css'
+
+// Alternatively, you can import only a certain theme style.
+// material theme
+import 'paginationbar/lib/themes/material/index.css'
+// element theme
+import 'paginationbar/lib/themes/element/index.css'
 ```
 
-2. Define a container.
+1. Define a container.
 
 ```html
 <div id="pagination-bar-container"></div>

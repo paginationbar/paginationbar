@@ -18,8 +18,12 @@ type PaginationLayoutTypes =
   | 'jumper'
   | 'total'
 
+type PaginationThemes = 'element' | 'material'
+
 interface PaginationBarOptions {
   container: string | HTMLElement
+
+  theme?: PaginationThemes
 
   firstPageNumber?: number
 

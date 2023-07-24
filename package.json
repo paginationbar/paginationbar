@@ -17,14 +17,17 @@
       "types": "./lib/index.d.ts"
     },
     "./lib/style.css": "./lib/style.css",
-    "./lib/themes/material/index.css": "./lib/themes/material/index.css"
+    "./lib/themes/material/index.css": "./lib/themes/material/index.css",
+    "./lib/themes/element/index.css": "./lib/themes/element/index.css"
   },
   "files": [
     "lib"
   ],
   "keywords": [
     "pagination",
-    "pagination-bar"
+    "pagination-bar",
+    "material",
+    "element"
   ],
   "repository": {
     "type": "github",
