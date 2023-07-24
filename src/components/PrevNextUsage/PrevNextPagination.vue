@@ -7,7 +7,12 @@
 import { createPaginationBar } from '@/lib/paginationBar'
 // using `import type { PaginationBarInstance } from 'paginationbar'` instead.
 import type { PaginationBarInstance } from '@/lib/interfaces/core'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed, watch } from 'vue'
+import { useThemeStore } from '@/stores/theme'
+
+const ThemeStore = useThemeStore()
+
+const theme = computed(() => ThemeStore.themeName)
 
 const paginationBarContainer = ref<HTMLElement>()
 const paginationBar = ref<PaginationBarInstance>()
@@ -20,9 +25,14 @@ const init = () => {
       total: 300,
       prevText: 'Prev',
       nextText: 'Next',
+      theme: theme.value,
     })
   }
 }
+
+watch(theme, (themeName) => {
+  paginationBar.value?.setTheme(themeName)
+})
 
 onMounted(() => {
   init()

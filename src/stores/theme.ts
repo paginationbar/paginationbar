@@ -5,11 +5,11 @@ export const useThemeStore = defineStore(
   'theme',
   () => {
     const themes = [
-      { label: 'element', href: '/' },
       { label: 'material', href: '/themes/material' },
+      { label: 'element', href: '/' },
     ]
 
-    const themeName = ref('element')
+    const themeName = ref('material')
 
     const setThemeName = (theme: string) => {
       themeName.value = theme

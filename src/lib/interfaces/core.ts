@@ -28,7 +28,7 @@ export type PaginationThemes = 'element' | 'material'
 export interface PaginationBarOptions {
   container: string | HTMLElement
 
-  theme?: PaginationThemes
+  theme?: PaginationThemes | string
 
   firstPageNumber?: number
 
@@ -101,6 +101,8 @@ export interface PaginationBarInstance {
   setTotal(value: number, reRender?: boolean): void
 
   setOptions(opts: PaginationBarOptions, reRender?: boolean): void
+
+  setTheme(themeName: string): void
 
   getLayout(): string[]
 

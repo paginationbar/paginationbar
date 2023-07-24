@@ -7,7 +7,7 @@ import type {
 } from './interfaces/core'
 import { ERRORS } from './ERRORS'
 import { CONSTANTS } from './CONSTANTS'
-import { addClass } from './dom'
+import { addClass, removeClass } from './dom'
 import PrevIconRaw from './icons/prev.svg?raw'
 import NextIconRaw from './icons/next.svg?raw'
 import MoreIconRaw from './icons/more.svg?raw'
@@ -15,7 +15,7 @@ import MoreIconRaw from './icons/more.svg?raw'
 export class PaginationBar implements PaginationBarInstance {
   options: Required<PaginationBarOptions> = {
     container: '#pagination-bar-container',
-    theme: 'element',
+    theme: 'material',
     firstPageNumber: 1,
     pagerCount: 7,
     currentPage: 1,
@@ -80,6 +80,18 @@ export class PaginationBar implements PaginationBarInstance {
     reRender && this.render()
   }
 
+  setTheme(themeName: string) {
+    const containerEl = this.getContainerEl()
+
+    for (const className of containerEl.classList.values()) {
+      if (className.startsWith(CONSTANTS.themeClassNamePrefix)) {
+        removeClass(containerEl, className)
+      }
+    }
+
+    addClass(containerEl, `${CONSTANTS.themeClassNamePrefix}${themeName}`)
+  }
+
   constructor(opts?: PaginationBarOptions) {
     this.options = Object.assign(this.options, opts)
     this.selectedPageSize = this.options.pageSize
@@ -92,7 +104,10 @@ export class PaginationBar implements PaginationBarInstance {
     const container = this.getContainerEl()
 
     addClass(container, CONSTANTS.containerClassName)
-    addClass(container, `theme--${this.options.theme}`)
+    addClass(
+      container,
+      `${CONSTANTS.themeClassNamePrefix}${this.options.theme}`
+    )
 
     this.render()
   }
@@ -271,7 +286,7 @@ export class PaginationBar implements PaginationBarInstance {
         ? 'pager-number'
         : 'pager-quick-btn'
 
-      res += `<li class="${CONSTANTS.pagerItemClassName} ${isActive}" data-number="${v.pageNumber}" data-type="${v.type}" role="${role}">${text}</li>`
+      res += `<li class="${CONSTANTS.pagerItemClassName} ${isActive} ${role}" data-number="${v.pageNumber}" data-type="${v.type}" role="${role}">${text}</li>`
 
       return res
     }, '')

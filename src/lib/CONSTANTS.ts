@@ -7,4 +7,5 @@ export enum CONSTANTS {
   totalClassName = 'pagination-bar__total',
   jumperClassName = 'pagination-bar__jumper',
   sizesClassName = 'pagination-bar__sizes',
+  themeClassNamePrefix = 'theme--',
 }

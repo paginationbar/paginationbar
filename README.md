@@ -37,12 +37,14 @@ $ npm i paginationbar
 1. Import the style for themes.
 
 ```ts
-// Include all themes
+// Include all themes (Not recommended)
 import 'paginationbar/lib/style.css'
 
-// Alternatively, you can import only a certain theme style.
+// Alternatively, you can import only a certain theme style (Recommended).
+
 // material theme
 import 'paginationbar/lib/themes/material/index.css'
+
 // element theme
 import 'paginationbar/lib/themes/element/index.css'
 ```
@@ -68,7 +70,7 @@ const paginationBar = createPaginationBar({
 | Prop | Type | Default value | Available values | Description |
 | :---: | :---: | :---: | :---: | :---: |
 | `container` | `string` <br /> `HTMLElement` |  `#pagination-bar-container` | - | Specify this to change the container. |
-| `theme` | `string` |  `element` | - | Specify this to change the theme. |
+| `theme` | `string` |  `material` | - | Specify this to change the theme. |
 | `prevText` | `string` |  `''` | - | Replace **prev icon** with custom text. |
 | `nextText` | `string` |  `''` | - | Replace **next icon** with custom text. |
 | `jumperPrefixText` | `string` |  `'Go to'` | - | Specify this to change the prefix text of the **jumper control**. |

@@ -1,7 +1,7 @@
 <template>
   <div class="theme-picker">
     <label for="" class="theme-picker__label">Themes: </label>
-    <select v-model="selectedTheme" @change="handleThemeChange">
+    <select v-model="selectedTheme">
       <option v-for="v in themes" :key="v.label" :value="v.label">
         {{ v.label }}
       </option>
@@ -25,12 +25,6 @@ const selectedTheme = computed({
     ThemeStore.setThemeName(value)
   },
 })
-
-const handleThemeChange = () => {
-  const item = themes.value.find((v) => v.label === selectedTheme.value)
-
-  console.log(item)
-}
 </script>
 
 <style lang="scss" scoped>
