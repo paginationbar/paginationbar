@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.4.0
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v1.3.0...v1.4.0)
+
+### 🚀 Enhancements
+
+- Add theme config ([91448d9](https://github.com/paginationbar/paginationbar/commit/91448d9))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.3.0
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v1.2.1...v1.3.0)
