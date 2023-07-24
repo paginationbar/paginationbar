@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.6.0
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v1.5.0...v1.6.0)
+
+### 🚀 Enhancements
+
+- Material theme ([402e351](https://github.com/paginationbar/paginationbar/commit/402e351))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.5.0
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v1.4.0...v1.5.0)
