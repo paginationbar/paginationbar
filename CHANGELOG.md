@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v1.3.0
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v1.2.1...v1.3.0)
+
+### 🚀 Enhancements
+
+- Add sizes control for toggle page size ([f2ac276](https://github.com/paginationbar/paginationbar/commit/f2ac276))
+
+### 🏡 Chore
+
+- Update pkg desc ([ca254bc](https://github.com/paginationbar/paginationbar/commit/ca254bc))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.2.1
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v1.2.0...v1.2.1)
