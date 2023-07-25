@@ -2,6 +2,7 @@ import dts from 'rollup-plugin-dts'
 import fs from 'fs'
 import path from 'path'
 import scss from 'rollup-plugin-scss'
+import process from 'process'
 
 const pkg = JSON.parse(fs.readFileSync('./package.json'))
 

@@ -11,6 +11,7 @@ import { addClass, removeClass } from './dom'
 import PrevIconRaw from './icons/prev.svg?raw'
 import NextIconRaw from './icons/next.svg?raw'
 import MoreIconRaw from './icons/more.svg?raw'
+import QuickArrow from './icons/quick-arrow.svg?raw'
 
 export class PaginationBar implements PaginationBarInstance {
   options: Required<PaginationBarOptions> = {
@@ -100,6 +101,8 @@ export class PaginationBar implements PaginationBarInstance {
     this.nextBtnListener = this.nextBtnListener.bind(this)
     this.jumperListener = this.jumperListener.bind(this)
     this.sizesListener = this.sizesListener.bind(this)
+    this.quickNextListener = this.quickNextListener.bind(this)
+    this.quickPrevListener = this.quickPrevListener.bind(this)
 
     const container = this.getContainerEl()
 
@@ -280,13 +283,21 @@ export class PaginationBar implements PaginationBarInstance {
 
   generatePager() {
     const numbersHtml = this.finalPager.reduce((res, v) => {
-      const text = this.isPagerNumberType(v.type) ? v.pageNumber : MoreIconRaw
+      const quickBtnIcon = `
+        <span class="pager-quick-btn-icon pager-quick-btn-icon--more ${v.type}">${MoreIconRaw}</span>
+        <span class="pager-quick-btn-icon pager-quick-btn-icon--arrow ${v.type}">${QuickArrow}</span>
+      `
+
+      const text = this.isPagerNumberType(v.type) ? v.pageNumber : quickBtnIcon
       const isActive = this.options.currentPage === v.pageNumber ? 'active' : ''
       const role = this.isPagerNumberType(v.type)
         ? 'pager-number'
         : 'pager-quick-btn'
 
-      res += `<li class="${CONSTANTS.pagerItemClassName} ${isActive} ${role}" data-number="${v.pageNumber}" data-type="${v.type}" role="${role}">${text}</li>`
+      res += `<li class="${CONSTANTS.pagerItemClassName} ${isActive} ${role}" 
+        data-number="${v.pageNumber}" data-type="${v.type}" role="${role}">
+        ${text}
+      </li>`
 
       return res
     }, '')
@@ -399,6 +410,30 @@ export class PaginationBar implements PaginationBarInstance {
     this.render()
   }
 
+  quickNextListener() {
+    this.setCurrentPage(this.options.currentPage + this.mainPagerCount)
+  }
+
+  quickPrevListener() {
+    this.setCurrentPage(this.options.currentPage - this.mainPagerCount)
+  }
+
+  getQuickNextEl() {
+    const el = this.getContainerEl().querySelector(
+      `.${CONSTANTS.pagerWrapperClassName} .${CONSTANTS.pagerItemClassName}[data-type="next-ellipsis"]`
+    )
+
+    return el
+  }
+
+  getQuickPrevEl() {
+    const el = this.getContainerEl().querySelector(
+      `.${CONSTANTS.pagerWrapperClassName} .${CONSTANTS.pagerItemClassName}[data-type="prev-ellipsis"]`
+    )
+
+    return el
+  }
+
   registerListeners() {
     this.removeListeners()
 
@@ -420,6 +455,9 @@ export class PaginationBar implements PaginationBarInstance {
     containerEl
       .querySelector(`.${CONSTANTS.sizesClassName}__select`)
       ?.addEventListener('change', this.sizesListener)
+
+    this.getQuickNextEl()?.addEventListener('click', this.quickNextListener)
+    this.getQuickPrevEl()?.addEventListener('click', this.quickPrevListener)
   }
 
   removeListeners() {
@@ -440,6 +478,10 @@ export class PaginationBar implements PaginationBarInstance {
     containerEl
       .querySelector(`.${CONSTANTS.sizesClassName}__select`)
       ?.removeEventListener('change', this.sizesListener)
+
+    this.getQuickNextEl()?.removeEventListener('click', this.quickNextListener)
+
+    this.getQuickPrevEl()?.removeEventListener('click', this.quickPrevListener)
   }
 
   render() {

@@ -41,6 +41,9 @@
   min-width: var(--theme-number-min-width);
   height: var(--theme-number-height);
 }
+.pagination-bar-container.theme--element .pagination-bar__pager__number svg {
+  font-size: var(--theme-font-size);
+}
 .pagination-bar-container.theme--element .pagination-bar__pager__number.active {
   color: var(--theme-color);
   cursor: default;
@@ -48,8 +51,31 @@
 .pagination-bar-container.theme--element .pagination-bar__pager__number:hover {
   color: var(--theme-color);
 }
-.pagination-bar-container.theme--element .pagination-bar__pager__number svg {
-  font-size: var(--theme-font-size);
+.pagination-bar-container.theme--element .pagination-bar__pager__number .pager-quick-btn-icon {
+  align-items: center;
+}
+.pagination-bar-container.theme--element .pagination-bar__pager__number .pager-quick-btn-icon--arrow {
+  display: none;
+}
+.pagination-bar-container.theme--element .pagination-bar__pager__number .pager-quick-btn-icon--arrow.prev-ellipsis {
+  transform: rotate(180deg);
+}
+.pagination-bar-container.theme--element .pagination-bar__pager__number .pager-quick-btn-icon--more {
+  display: flex;
+}
+.pagination-bar-container.theme--element .pagination-bar__pager__number.pager-quick-btn {
+  box-shadow: none;
+}
+.pagination-bar-container.theme--element .pagination-bar__pager__number.pager-quick-btn svg {
+  font-size: 16px;
+  fill: currentColor;
+}
+.pagination-bar-container.theme--element .pagination-bar__pager__number.pager-quick-btn:hover .pager-quick-btn-icon--arrow {
+  display: flex;
+  color: var(--theme-color);
+}
+.pagination-bar-container.theme--element .pagination-bar__pager__number.pager-quick-btn:hover .pager-quick-btn-icon--more {
+  display: none;
 }
 .pagination-bar-container.theme--element .pagination-bar__total {
   font-size: var(--theme-font-size);

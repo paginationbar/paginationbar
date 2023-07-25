@@ -43,17 +43,40 @@
   border-radius: 50%;
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
+.pagination-bar-container.theme--material .pagination-bar__pager__number svg {
+  font-size: var(--theme-font-size);
+}
 .pagination-bar-container.theme--material .pagination-bar__pager__number.active {
   background-color: var(--theme-color);
   color: #fff;
   cursor: default;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
+.pagination-bar-container.theme--material .pagination-bar__pager__number .pager-quick-btn-icon {
+  align-items: center;
+}
+.pagination-bar-container.theme--material .pagination-bar__pager__number .pager-quick-btn-icon--arrow {
+  display: none;
+}
+.pagination-bar-container.theme--material .pagination-bar__pager__number .pager-quick-btn-icon--arrow.prev-ellipsis {
+  transform: rotate(180deg);
+}
+.pagination-bar-container.theme--material .pagination-bar__pager__number .pager-quick-btn-icon--more {
+  display: flex;
+}
 .pagination-bar-container.theme--material .pagination-bar__pager__number.pager-quick-btn {
   box-shadow: none;
 }
-.pagination-bar-container.theme--material .pagination-bar__pager__number svg {
-  font-size: var(--theme-font-size);
+.pagination-bar-container.theme--material .pagination-bar__pager__number.pager-quick-btn svg {
+  font-size: 16px;
+  fill: currentColor;
+}
+.pagination-bar-container.theme--material .pagination-bar__pager__number.pager-quick-btn:hover .pager-quick-btn-icon--arrow {
+  display: flex;
+  color: var(--theme-color);
+}
+.pagination-bar-container.theme--material .pagination-bar__pager__number.pager-quick-btn:hover .pager-quick-btn-icon--more {
+  display: none;
 }
 .pagination-bar-container.theme--material .pagination-bar__total {
   font-size: var(--theme-font-size);
@@ -84,11 +107,14 @@
   color: var(--theme-color);
 }
 .pagination-bar-container.theme--material .pagination-bar__prev:hover svg, .pagination-bar-container.theme--material .pagination-bar__next:hover svg {
-  fill: var(--theme-color);
+  fill: currentColor;
 }
 .pagination-bar-container.theme--material .pagination-bar__prev.disabled, .pagination-bar-container.theme--material .pagination-bar__next.disabled {
   cursor: not-allowed;
   opacity: 0.5;
+}
+.pagination-bar-container.theme--material .pagination-bar__prev.disabled:hover, .pagination-bar-container.theme--material .pagination-bar__next.disabled:hover {
+  color: var(--theme-text-color--secondary);
 }
 .pagination-bar-container.theme--material .pagination-bar__jumper {
   display: flex;

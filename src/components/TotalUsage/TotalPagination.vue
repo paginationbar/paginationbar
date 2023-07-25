@@ -21,7 +21,7 @@ const init = () => {
   if (paginationBarContainer.value) {
     paginationBar.value = createPaginationBar({
       container: paginationBarContainer.value,
-      layout: 'total,prev,pager,next',
+      layout: 'prev,pager,next,total',
       total: 300,
       theme: theme.value,
     })

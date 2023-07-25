@@ -46,6 +46,10 @@
         border-radius: 50%;
         box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
 
+        svg {
+          font-size: var(--theme-font-size);
+        }
+
         &.active {
           background-color: var(--theme-color);
           color: #fff;
@@ -53,13 +57,43 @@
           box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
         }
 
-        &.pager-quick-btn {
-          box-shadow: none;
+        .pager-quick-btn-icon {
+          align-items: center;
+          
+          &--arrow {
+            display: none;
+            &.prev-ellipsis {
+              transform: rotate(180deg);
+            }
+          }
+
+          &--more {
+            display: flex;
+          }
         }
 
-        svg {
-          font-size: var(--theme-font-size);
+        &.pager-quick-btn {
+          box-shadow: none;
+          svg {
+            font-size: 16px;
+            fill: currentColor;
+          }
+
+          &:hover {
+            .pager-quick-btn-icon {
+              &--arrow {
+                display: flex;
+                color: var(--theme-color);
+              }
+
+              &--more {
+                display: none;
+              }
+            }
+
+          }
         }
+    
       }
     }
 
@@ -94,13 +128,17 @@
       &:hover {
         color: var(--theme-color);
         svg {
-          fill: var(--theme-color);
+          fill: currentColor;
         }
       }
 
       &.disabled {
         cursor: not-allowed;
         opacity: 0.5;
+
+        &:hover {
+          color: var(--theme-text-color--secondary);
+        }
       }
     }
 

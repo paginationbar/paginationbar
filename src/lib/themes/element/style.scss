@@ -44,6 +44,10 @@
         min-width: var(--theme-number-min-width);
         height: var(--theme-number-height);
 
+        svg {
+          font-size: var(--theme-font-size);
+        }
+
         &.active {
           color: var(--theme-color);
           cursor: default;
@@ -53,8 +57,41 @@
           color: var(--theme-color);
         }
 
-        svg {
-          font-size: var(--theme-font-size);
+        .pager-quick-btn-icon {
+          align-items: center;
+
+          &--arrow {
+            display: none;
+            &.prev-ellipsis {
+              transform: rotate(180deg);
+            }
+          }
+
+          &--more {
+            display: flex;
+          }
+        }
+
+        &.pager-quick-btn {
+          box-shadow: none;
+          svg {
+            font-size: 16px;
+            fill: currentColor;
+          }
+
+          &:hover {
+            .pager-quick-btn-icon {
+              &--arrow {
+                display: flex;
+                color: var(--theme-color);
+              }
+
+              &--more {
+                display: none;
+              }
+            }
+
+          }
         }
       }
     }
