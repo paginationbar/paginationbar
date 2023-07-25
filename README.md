@@ -15,7 +15,7 @@ A modern pagination bar library for web app. See [example](https://paginationbar
 
 # Features
 
-- Built-in themes(element , material) design and more.
+- Built-in themes(material, element) design and more.
 - Does not depend on any **third-party** library.
 - Support **Typescript**.
 
@@ -89,8 +89,8 @@ const paginationBar = createPaginationBar({
 | `onCurrentPageChange` | `Function` | - | - | The **callback function** when the **current page** changes, passed in the `currentPage` as a parameter. |
 | `onPageSizeChange` | `Function` | - | - | The **callback function** when the **page size** changes, passed in the current `pageSize` as a parameter. |
 
-# Instance API
-## Methods
+# APIs
+## Instance methods
 ### setCurrentPage
 
 You can use this to change `currentPage` after pagination bar initialization. and it will return a safty page number.
@@ -121,7 +121,7 @@ Pagination bar can be manually deactivated using the `disabled()` method.
 
 ```ts
 paginationBar.disabled(true) // deactivated
-paginationBar.disabled(false) // ctivated
+paginationBar.disabled(false) // activated
 ```
 
 # CHANGE LOGS
