@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.7.0
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v1.6.0...v1.7.0)
+
+### 🚀 Enhancements
+
+- Support pager quick paging ([19f1efd](https://github.com/paginationbar/paginationbar/commit/19f1efd))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.6.0
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v1.5.0...v1.6.0)
