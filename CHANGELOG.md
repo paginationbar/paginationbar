@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.8.0
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v1.7.0...v1.8.0)
+
+### 🚀 Enhancements
+
+- Support disabled prop ([c8b5f1c](https://github.com/paginationbar/paginationbar/commit/c8b5f1c))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.7.0
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v1.6.0...v1.7.0)
