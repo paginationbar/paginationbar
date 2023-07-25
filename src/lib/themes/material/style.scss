@@ -44,7 +44,8 @@
         min-width: var(--theme-number-min-width);
         height: var(--theme-number-height);
         border-radius: 50%;
-        box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+          0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
         svg {
           font-size: var(--theme-font-size);
@@ -54,12 +55,13 @@
           background-color: var(--theme-color);
           color: #fff;
           cursor: default;
-          box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+          box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
+            0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
         }
 
         .pager-quick-btn-icon {
           align-items: center;
-          
+
           &--arrow {
             display: none;
             &.prev-ellipsis {
@@ -90,10 +92,8 @@
                 display: none;
               }
             }
-
           }
         }
-    
       }
     }
 
@@ -118,7 +118,8 @@
       background-color: #fff;
       color: var(--theme-text-color--secondary);
       border-radius: 50%;
-      box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+        0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
       svg {
         font-size: var(--theme-font-size);
@@ -180,7 +181,7 @@
     &__sizes {
       margin: 0 4px;
       height: var(--theme-number-height);
-      
+
       &__select {
         display: block;
         height: 100%;
@@ -194,6 +195,30 @@
 
         &:hover {
           border-color: var(--theme-color);
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+
+    .pagination-bar {
+      &__pager {
+        &__number {
+          cursor: not-allowed;
+        }
+      }
+
+      &__sizes {
+        &__select {
+          cursor: not-allowed;
+        }
+      }
+
+      &__jumper {
+        &__input-inner {
+          cursor: not-allowed;
         }
       }
     }

@@ -18,6 +18,12 @@
     <div class="features-item">
       <PrevNextUsage />
     </div>
+    <div class="features-item">
+      <DisabledUsage />
+    </div>
+    <div class="features-item">
+      <FullUsage />
+    </div>
   </main>
 </template>
 
@@ -28,6 +34,8 @@ import TotalCountUsage from '@/components/TotalUsage/index.vue'
 import JumperUsage from '@/components/JumperUsage/index.vue'
 import PrevNextUsage from '@/components/PrevNextUsage/index.vue'
 import SizesUsage from '@/components/SizesUsage/index.vue'
+import FullUsage from '@/components/FullUsage/index.vue'
+import DisabledUsage from '@/components/DisabledUsage/index.vue'
 </script>
 
 <style lang="scss" scoped>

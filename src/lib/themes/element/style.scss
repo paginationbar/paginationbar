@@ -186,4 +186,28 @@
       }
     }
   }
+
+  &.disabled {
+    opacity: 0.5;
+
+    .pagination-bar {
+      &__pager {
+        &__number {
+          cursor: not-allowed;
+        }
+      }
+
+      &__sizes {
+        &__select {
+          cursor: not-allowed;
+        }
+      }
+
+      &__jumper {
+        &__input-inner {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
 }

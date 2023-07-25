@@ -56,6 +56,8 @@ interface PaginationBarOptions {
   onCurrentPageChange?: (index: number) => void
 
   onPageSizeChange?: (size: number) => void
+
+  disabled?: boolean
 }
 
 interface PaginationBarInstance {
@@ -98,6 +100,8 @@ interface PaginationBarInstance {
   setOptions(opts: PaginationBarOptions, reRender?: boolean): void
 
   setTheme(themeName: string): void
+
+  disabled(value: boolean, reRender?: boolean): void
 
   getLayout(): string[]
 

@@ -81,6 +81,7 @@ const paginationBar = createPaginationBar({
 | `pagerCount` | `number` |  `7` | - | Specify this to change the number of page number buttons that will collapse when the total number of pages exceeds this value. |
 | `currentPage` | `number` |  `1` | - | Initialize current page number. |
 | `pageSize` | `number` |  `10` | - | Initialize the number of displayed entries per page. |
+| `disabled` | `boolean` |  `false` | - | Initialize the **disabled status** of pagination bar. |
 | `pageSizes` | `number[]` |  `[10,20,30,40,50,100]` | - | Define options of **sizes control**. |
 | `sizesOptionLabel` | `(size: number) => string` | - | - | Customize the label content of sizes options. |
 | `total` | `number` |  `0` | - | Initialize total number of entries. |
@@ -88,7 +89,7 @@ const paginationBar = createPaginationBar({
 | `onCurrentPageChange` | `Function` | - | - | The **callback function** when the **current page** changes, passed in the `currentPage` as a parameter. |
 | `onPageSizeChange` | `Function` | - | - | The **callback function** when the **page size** changes, passed in the current `pageSize` as a parameter. |
 
-# PaginationBar instance
+# Instance API
 ## Methods
 ### setCurrentPage
 
@@ -112,6 +113,15 @@ You can use this to change `total` after pagination bar initialization.
 
 ```ts
 paginationBar.setTotal(500)
+```
+
+### disabled
+
+Pagination bar can be manually deactivated using the `disabled()` method. 
+
+```ts
+paginationBar.disabled(true) // deactivated
+paginationBar.disabled(false) // ctivated
 ```
 
 # CHANGE LOGS

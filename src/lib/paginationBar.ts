@@ -35,6 +35,7 @@ export class PaginationBar implements PaginationBarInstance {
     totalSuffixText: '',
     onCurrentPageChange: () => {},
     onPageSizeChange: () => {},
+    disabled: false,
   }
 
   currentJumpNumber: number | '' = ''
@@ -93,6 +94,18 @@ export class PaginationBar implements PaginationBarInstance {
     addClass(containerEl, `${CONSTANTS.themeClassNamePrefix}${themeName}`)
   }
 
+  disabled(value: boolean, reRender: boolean = true): void {
+    const containerEl = this.getContainerEl()
+    this.options.disabled = value
+    if (value) {
+      addClass(containerEl, 'disabled')
+    } else {
+      removeClass(containerEl, 'disabled')
+    }
+
+    reRender && this.render()
+  }
+
   constructor(opts?: PaginationBarOptions) {
     this.options = Object.assign(this.options, opts)
     this.selectedPageSize = this.options.pageSize
@@ -111,6 +124,10 @@ export class PaginationBar implements PaginationBarInstance {
       container,
       `${CONSTANTS.themeClassNamePrefix}${this.options.theme}`
     )
+
+    if (this.options.disabled) {
+      addClass(container, 'disabled')
+    }
 
     this.render()
   }
@@ -234,6 +251,10 @@ export class PaginationBar implements PaginationBarInstance {
     return this.leftPager.concat(this.mainPager, this.rightPager)
   }
 
+  get disabledAttrString() {
+    return this.options.disabled ? 'disabled="disabled"' : ''
+  }
+
   getLayout() {
     if (typeof this.options.layout === 'string') {
       return this.options.layout.split(',').map((v) => v.trim())
@@ -307,7 +328,8 @@ export class PaginationBar implements PaginationBarInstance {
 
   generatePrev() {
     const disabled =
-      this.options.currentPage <= this.options.firstPageNumber
+      this.options.currentPage <= this.options.firstPageNumber ||
+      this.options.disabled
         ? `disabled="disabled"`
         : ''
     const disabledClassName = disabled ? 'disabled' : ''
@@ -319,7 +341,7 @@ export class PaginationBar implements PaginationBarInstance {
 
   generateNext() {
     const disabled =
-      this.options.currentPage >= this.lastPageNumber
+      this.options.currentPage >= this.lastPageNumber || this.options.disabled
         ? `disabled="disabled"`
         : ''
     const disabledClassName = disabled ? 'disabled' : ''
@@ -340,7 +362,7 @@ export class PaginationBar implements PaginationBarInstance {
       .join('')
 
     return `<div class="${CONSTANTS.sizesClassName}">
-      <select class="${CONSTANTS.sizesClassName}__select">${selectOptions}</select>
+      <select class="${CONSTANTS.sizesClassName}__select" ${this.disabledAttrString}>${selectOptions}</select>
     </div>`
   }
 
@@ -348,7 +370,7 @@ export class PaginationBar implements PaginationBarInstance {
     return `<div class="${CONSTANTS.jumperClassName}">
       <span>${this.options.jumperPrefixText}</span>
       <div class="${CONSTANTS.jumperClassName}__input">
-        <input type="number" value="${this.currentJumpNumber}"  autocomplete="off" min="${this.options.firstPageNumber}" max="${this.lastPageNumber}" class="${CONSTANTS.jumperClassName}__input-inner" />
+        <input ${this.disabledAttrString} type="number" value="${this.currentJumpNumber}"  autocomplete="off" min="${this.options.firstPageNumber}" max="${this.lastPageNumber}" class="${CONSTANTS.jumperClassName}__input-inner" />
       </div>
       <span>${this.options.jumperSuffixText}</span>
     </div>`
@@ -366,6 +388,8 @@ export class PaginationBar implements PaginationBarInstance {
   }
 
   pagerListener(e: Event) {
+    if (this.options.disabled) return
+
     const el = e.target as HTMLElement
     const role = el.getAttribute('role')
 
@@ -377,16 +401,22 @@ export class PaginationBar implements PaginationBarInstance {
   }
 
   prevBtnListener() {
+    if (this.options.disabled) return
+
     this.options.currentPage > 1 &&
       this.setCurrentPage(this.options.currentPage - 1)
   }
 
   nextBtnListener() {
+    if (this.options.disabled) return
+
     this.options.currentPage < this.lastPageNumber &&
       this.setCurrentPage(this.options.currentPage + 1)
   }
 
   jumperListener(e: Event) {
+    if (this.options.disabled) return
+
     const el = e.target as HTMLInputElement
 
     if (!el.value) {
@@ -399,6 +429,8 @@ export class PaginationBar implements PaginationBarInstance {
   }
 
   sizesListener(e: Event) {
+    if (this.options.disabled) return
+
     const el = e.target as HTMLInputElement
 
     if (!el.value) {
@@ -411,10 +443,12 @@ export class PaginationBar implements PaginationBarInstance {
   }
 
   quickNextListener() {
+    if (this.options.disabled) return
     this.setCurrentPage(this.options.currentPage + this.mainPagerCount)
   }
 
   quickPrevListener() {
+    if (this.options.disabled) return
     this.setCurrentPage(this.options.currentPage - this.mainPagerCount)
   }
 

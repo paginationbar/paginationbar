@@ -165,3 +165,15 @@
 .pagination-bar-container.theme--material .pagination-bar__sizes__select:hover {
   border-color: var(--theme-color);
 }
+.pagination-bar-container.theme--material.disabled {
+  opacity: 0.5;
+}
+.pagination-bar-container.theme--material.disabled .pagination-bar__pager__number {
+  cursor: not-allowed;
+}
+.pagination-bar-container.theme--material.disabled .pagination-bar__sizes__select {
+  cursor: not-allowed;
+}
+.pagination-bar-container.theme--material.disabled .pagination-bar__jumper__input-inner {
+  cursor: not-allowed;
+}
