@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v1.9.0
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v1.8.0...v1.9.0)
+
+### 🚀 Enhancements
+
+- Background feature ([4cc822e](https://github.com/paginationbar/paginationbar/commit/4cc822e))
+
+### 🏡 Chore
+
+- **docs:** Update readme ([e5610ad](https://github.com/paginationbar/paginationbar/commit/e5610ad))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.8.0
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v1.7.0...v1.8.0)
