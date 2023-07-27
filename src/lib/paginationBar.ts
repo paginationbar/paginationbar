@@ -7,7 +7,7 @@ import type {
 } from './interfaces/core'
 import { ERRORS } from './ERRORS'
 import { CONSTANTS } from './CONSTANTS'
-import { addClass, removeClass } from './dom'
+import { addClass, css, removeClass } from './dom'
 import PrevIconRaw from './icons/prev.svg?raw'
 import NextIconRaw from './icons/next.svg?raw'
 import MoreIconRaw from './icons/more.svg?raw'
@@ -37,6 +37,7 @@ export class PaginationBar implements PaginationBarInstance {
     onPageSizeChange: () => {},
     disabled: false,
     background: false,
+    hideOnSinglePage: false,
   }
 
   currentJumpNumber: number | '' = ''
@@ -75,6 +76,7 @@ export class PaginationBar implements PaginationBarInstance {
 
   setTotal(value: number, reRender: boolean = true) {
     this.options.total = value || 0
+
     reRender && this.render()
   }
 
@@ -537,9 +539,13 @@ export class PaginationBar implements PaginationBarInstance {
   render() {
     const container = this.getContainerEl()
 
-    const htmlContent = this.getLayoutHTML()
+    if (this.options.hideOnSinglePage && this.options.total === 1) {
+      css(container, { display: 'none' })
+    } else {
+      css(container, { display: 'flex' })
+    }
 
-    container.innerHTML = htmlContent
+    container.innerHTML = this.getLayoutHTML()
 
     this.registerListeners()
   }

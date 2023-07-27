@@ -72,6 +72,7 @@ const paginationBar = createPaginationBar({
 | `container` | `string` <br /> `HTMLElement` |  `#pagination-bar-container` | - | Specify this to change the container. |
 | `theme` | `string` |  `material` | - | Specify this to change the theme. |
 | `background` | `boolean` |  `false` | - | Specify this to Add a background color to the pagination button. |
+| `hideOnSinglePage` | `boolean` |  `false` | - | Hide when there is only one page. |
 | `prevText` | `string` |  `''` | - | Replace **prev icon** with custom text. |
 | `nextText` | `string` |  `''` | - | Replace **next icon** with custom text. |
 | `jumperPrefixText` | `string` |  `'Go to'` | - | Specify this to change the prefix text of the **jumper control**. |

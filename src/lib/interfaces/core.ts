@@ -65,6 +65,8 @@ export interface PaginationBarOptions {
   disabled?: boolean
 
   background?: boolean
+
+  hideOnSinglePage?: boolean
 }
 
 export interface PaginationBarInstance {
