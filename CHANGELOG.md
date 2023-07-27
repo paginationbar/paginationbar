@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.10.0
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v1.9.0...v1.10.0)
+
+### 🚀 Enhancements
+
+- Hide when there is only one page ([7333802](https://github.com/paginationbar/paginationbar/commit/7333802))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.9.0
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v1.8.0...v1.9.0)
