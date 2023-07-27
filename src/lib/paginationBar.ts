@@ -36,6 +36,7 @@ export class PaginationBar implements PaginationBarInstance {
     onCurrentPageChange: () => {},
     onPageSizeChange: () => {},
     disabled: false,
+    background: false,
   }
 
   currentJumpNumber: number | '' = ''
@@ -302,6 +303,10 @@ export class PaginationBar implements PaginationBarInstance {
     return type && !['prev-ellipsis', 'next-ellipsis'].includes(type)
   }
 
+  isBackground() {
+    return this.options.background ? 'is-background' : ''
+  }
+
   generatePager() {
     const numbersHtml = this.finalPager.reduce((res, v) => {
       const quickBtnIcon = `
@@ -323,7 +328,9 @@ export class PaginationBar implements PaginationBarInstance {
       return res
     }, '')
 
-    return `<ul class="${CONSTANTS.pagerWrapperClassName}">${numbersHtml}</ul>`
+    return `<ul class="${
+      CONSTANTS.pagerWrapperClassName
+    } ${this.isBackground()}">${numbersHtml}</ul>`
   }
 
   generatePrev() {
@@ -336,7 +343,9 @@ export class PaginationBar implements PaginationBarInstance {
 
     const text = this.options.prevText ? this.options.prevText : PrevIconRaw
 
-    return `<button type="button" class="${CONSTANTS.prevButtonClassName} ${disabledClassName}" ${disabled} role="prev-btn">${text}</button>`
+    return `<button type="button" class="${
+      CONSTANTS.prevButtonClassName
+    } ${disabledClassName} ${this.isBackground()}" ${disabled} role="prev-btn">${text}</button>`
   }
 
   generateNext() {
@@ -348,7 +357,9 @@ export class PaginationBar implements PaginationBarInstance {
 
     const text = this.options.nextText ? this.options.nextText : NextIconRaw
 
-    return `<button type="button" class="${CONSTANTS.nextButtonClassName} ${disabledClassName}" ${disabled} role="next-btn">${text}</button>`
+    return `<button type="button" class="${
+      CONSTANTS.nextButtonClassName
+    } ${disabledClassName} ${this.isBackground()}" ${disabled} role="next-btn">${text}</button>`
   }
 
   generateSizes() {
@@ -439,6 +450,11 @@ export class PaginationBar implements PaginationBarInstance {
     }
 
     this.selectedPageSize = this.setPageSize(Number(el.value), false)
+
+    if (this.options.currentPage > this.lastPageNumber) {
+      this.setCurrentPage(this.lastPageNumber, false)
+    }
+
     this.render()
   }
 

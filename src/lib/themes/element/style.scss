@@ -7,6 +7,8 @@
   --theme-text-color--secondary: #606266;
   --theme-font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
     Microsoft YaHei, SimSun, sans-serif;
+  --theme-pager-background-bg-color: #f4f4f5;
+  --theme-pager-background-min-width: 30px;
 
   display: flex;
   align-items: center;
@@ -90,7 +92,25 @@
                 display: none;
               }
             }
+          }
+        }
+      }
 
+      &.is-background {
+        .pagination-bar__pager__number {
+          background-color: var(--theme-pager-background-bg-color);
+          color: var(--theme-text-color--secondary);
+          margin: 0 5px;
+          border-radius: 2px;
+          min-width: var(--theme-pager-background-min-width);
+
+          &:hover {
+            color: var(--theme-color);
+          }
+
+          &.active {
+            background-color: var(--theme-color);
+            color: #fff;
           }
         }
       }
@@ -115,6 +135,12 @@
       cursor: pointer;
       background-color: transparent;
       color: var(--theme-text-color--secondary);
+      margin: 0 5px;
+
+      &.is-background {
+        background-color: var(--theme-pager-background-bg-color);
+        min-width: var(--theme-pager-background-min-width);
+      }
 
       svg {
         font-size: var(--theme-font-size);
@@ -194,12 +220,24 @@
       &__pager {
         &__number {
           cursor: not-allowed;
+          &:hover {
+            color: unset;
+
+            .pager-quick-btn-icon {
+              &--arrow {
+                color: unset;
+              }
+            }
+          }
         }
       }
 
       &__sizes {
         &__select {
           cursor: not-allowed;
+          &:hover {
+            border-color: #dcdfe6;
+          }
         }
       }
 

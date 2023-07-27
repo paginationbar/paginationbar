@@ -7,6 +7,7 @@
   --theme-text-color--secondary: #606266;
   --theme-font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
     Microsoft YaHei, SimSun, sans-serif;
+  --theme-pager-background-bg-color: #fff;
   display: flex;
   align-items: center;
   white-space: nowrap;
@@ -29,7 +30,6 @@
 }
 .pagination-bar-container.theme--material .pagination-bar__pager__number {
   padding: 0 4px;
-  background: #fff;
   font-size: var(--theme-font-size);
   cursor: pointer;
   box-sizing: border-box;
@@ -41,7 +41,6 @@
   min-width: var(--theme-number-min-width);
   height: var(--theme-number-height);
   border-radius: 50%;
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 .pagination-bar-container.theme--material .pagination-bar__pager__number svg {
   font-size: var(--theme-font-size);
@@ -78,10 +77,12 @@
 .pagination-bar-container.theme--material .pagination-bar__pager__number.pager-quick-btn:hover .pager-quick-btn-icon--more {
   display: none;
 }
-.pagination-bar-container.theme--material .pagination-bar__total {
-  font-size: var(--theme-font-size);
-  font-weight: normal;
-  color: var(--theme-text-color--secondary);
+.pagination-bar-container.theme--material .pagination-bar__pager.is-background .pagination-bar__pager__number {
+  background: var(--theme-pager-background-bg-color);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.pagination-bar-container.theme--material .pagination-bar__pager.is-background .pagination-bar__pager__number.active {
+  background-color: var(--theme-color);
 }
 .pagination-bar-container.theme--material .pagination-bar__prev, .pagination-bar-container.theme--material .pagination-bar__next {
   border: none;
@@ -94,9 +95,12 @@
   box-sizing: border-box;
   margin: 0.3rem;
   cursor: pointer;
-  background-color: #fff;
   color: var(--theme-text-color--secondary);
   border-radius: 50%;
+  background-color: transparent;
+}
+.pagination-bar-container.theme--material .pagination-bar__prev.is-background, .pagination-bar-container.theme--material .pagination-bar__next.is-background {
+  background-color: #fff;
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 .pagination-bar-container.theme--material .pagination-bar__prev svg, .pagination-bar-container.theme--material .pagination-bar__next svg {
@@ -165,6 +169,11 @@
 .pagination-bar-container.theme--material .pagination-bar__sizes__select:hover {
   border-color: var(--theme-color);
 }
+.pagination-bar-container.theme--material .pagination-bar__total {
+  font-size: var(--theme-font-size);
+  font-weight: normal;
+  color: var(--theme-text-color--secondary);
+}
 .pagination-bar-container.theme--material.disabled {
   opacity: 0.5;
 }
@@ -173,6 +182,9 @@
 }
 .pagination-bar-container.theme--material.disabled .pagination-bar__sizes__select {
   cursor: not-allowed;
+}
+.pagination-bar-container.theme--material.disabled .pagination-bar__sizes__select:hover {
+  border-color: #dcdfe6;
 }
 .pagination-bar-container.theme--material.disabled .pagination-bar__jumper__input-inner {
   cursor: not-allowed;

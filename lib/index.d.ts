@@ -58,6 +58,8 @@ interface PaginationBarOptions {
   onPageSizeChange?: (size: number) => void
 
   disabled?: boolean
+
+  background?: boolean
 }
 
 interface PaginationBarInstance {

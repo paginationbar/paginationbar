@@ -7,6 +7,7 @@
   --theme-text-color--secondary: #606266;
   --theme-font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
     Microsoft YaHei, SimSun, sans-serif;
+  --theme-pager-background-bg-color: #fff;
 
   display: flex;
   align-items: center;
@@ -32,7 +33,6 @@
 
       &__number {
         padding: 0 4px;
-        background: #fff;
         font-size: var(--theme-font-size);
         cursor: pointer;
         box-sizing: border-box;
@@ -44,8 +44,6 @@
         min-width: var(--theme-number-min-width);
         height: var(--theme-number-height);
         border-radius: 50%;
-        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-          0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
         svg {
           font-size: var(--theme-font-size);
@@ -95,12 +93,18 @@
           }
         }
       }
-    }
 
-    &__total {
-      font-size: var(--theme-font-size);
-      font-weight: normal;
-      color: var(--theme-text-color--secondary);
+      &.is-background {
+        .pagination-bar__pager__number {
+          background: var(--theme-pager-background-bg-color);
+          box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+            0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+          &.active {
+            background-color: var(--theme-color);
+          }
+        }
+      }
     }
 
     &__prev,
@@ -115,11 +119,15 @@
       box-sizing: border-box;
       margin: 0.3rem;
       cursor: pointer;
-      background-color: #fff;
       color: var(--theme-text-color--secondary);
       border-radius: 50%;
-      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-        0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      background-color: transparent;
+
+      &.is-background {
+        background-color: #fff;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+          0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      }
 
       svg {
         font-size: var(--theme-font-size);
@@ -198,6 +206,12 @@
         }
       }
     }
+
+    &__total {
+      font-size: var(--theme-font-size);
+      font-weight: normal;
+      color: var(--theme-text-color--secondary);
+    }
   }
 
   &.disabled {
@@ -213,6 +227,10 @@
       &__sizes {
         &__select {
           cursor: not-allowed;
+
+          &:hover {
+            border-color: #dcdfe6;
+          }
         }
       }
 

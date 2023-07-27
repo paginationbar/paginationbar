@@ -7,6 +7,8 @@
   --theme-text-color--secondary: #606266;
   --theme-font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
     Microsoft YaHei, SimSun, sans-serif;
+  --theme-pager-background-bg-color: #f4f4f5;
+  --theme-pager-background-min-width: 30px;
   display: flex;
   align-items: center;
   white-space: nowrap;
@@ -77,6 +79,20 @@
 .pagination-bar-container.theme--element .pagination-bar__pager__number.pager-quick-btn:hover .pager-quick-btn-icon--more {
   display: none;
 }
+.pagination-bar-container.theme--element .pagination-bar__pager.is-background .pagination-bar__pager__number {
+  background-color: var(--theme-pager-background-bg-color);
+  color: var(--theme-text-color--secondary);
+  margin: 0 5px;
+  border-radius: 2px;
+  min-width: var(--theme-pager-background-min-width);
+}
+.pagination-bar-container.theme--element .pagination-bar__pager.is-background .pagination-bar__pager__number:hover {
+  color: var(--theme-color);
+}
+.pagination-bar-container.theme--element .pagination-bar__pager.is-background .pagination-bar__pager__number.active {
+  background-color: var(--theme-color);
+  color: #fff;
+}
 .pagination-bar-container.theme--element .pagination-bar__total {
   font-size: var(--theme-font-size);
   font-weight: normal;
@@ -94,6 +110,11 @@
   cursor: pointer;
   background-color: transparent;
   color: var(--theme-text-color--secondary);
+  margin: 0 5px;
+}
+.pagination-bar-container.theme--element .pagination-bar__prev.is-background, .pagination-bar-container.theme--element .pagination-bar__next.is-background {
+  background-color: var(--theme-pager-background-bg-color);
+  min-width: var(--theme-pager-background-min-width);
 }
 .pagination-bar-container.theme--element .pagination-bar__prev svg, .pagination-bar-container.theme--element .pagination-bar__next svg {
   font-size: var(--theme-font-size);
@@ -161,8 +182,17 @@
 .pagination-bar-container.theme--element.disabled .pagination-bar__pager__number {
   cursor: not-allowed;
 }
+.pagination-bar-container.theme--element.disabled .pagination-bar__pager__number:hover {
+  color: unset;
+}
+.pagination-bar-container.theme--element.disabled .pagination-bar__pager__number:hover .pager-quick-btn-icon--arrow {
+  color: unset;
+}
 .pagination-bar-container.theme--element.disabled .pagination-bar__sizes__select {
   cursor: not-allowed;
+}
+.pagination-bar-container.theme--element.disabled .pagination-bar__sizes__select:hover {
+  border-color: #dcdfe6;
 }
 .pagination-bar-container.theme--element.disabled .pagination-bar__jumper__input-inner {
   cursor: not-allowed;
