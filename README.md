@@ -126,6 +126,21 @@ paginationBar.disabled(true) // deactivated
 paginationBar.disabled(false) // activated
 ```
 
+### destory
+
+Destroys the pagination bar instance. For example, event listeners and so on.
+
+```ts
+paginationBar.destory()
+```
+### render
+
+Manually re-render.
+
+```ts
+paginationBar.render()
+```
+
 # CHANGE LOGS
 
 See [CHANGE LOG](./CHANGELOG.md).
