@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v1.11.0
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v1.10.0...v1.11.0)
+
+### 🚀 Enhancements
+
+- Extract `dom` into the `fourdom` package ([3227cc6](https://github.com/paginationbar/paginationbar/commit/3227cc6))
+
+### 🏡 Chore
+
+- Update readme ([3d2e70d](https://github.com/paginationbar/paginationbar/commit/3d2e70d))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.10.0
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v1.9.0...v1.10.0)
