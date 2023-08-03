@@ -7,7 +7,7 @@ import type {
 } from './interfaces/core'
 import { ERRORS } from './ERRORS'
 import { CONSTANTS } from './CONSTANTS'
-import { addClass, css, removeClass } from './dom'
+import { addClass, css, removeClass } from 'fourdom'
 import PrevIconRaw from './icons/prev.svg?raw'
 import NextIconRaw from './icons/next.svg?raw'
 import MoreIconRaw from './icons/more.svg?raw'
