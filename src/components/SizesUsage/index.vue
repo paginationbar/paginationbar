@@ -16,13 +16,15 @@
 
       <SizesPagination />
 
-      <template #code> {{ CodeRaw }} </template>
+      <template #code>
+        <pre class="lang-markup"><code>{{ formatLibName(CodeRaw) }}</code></pre>
+      </template>
     </DemoPanel>
   </div>
 </template>
 
 <script lang="ts" setup>
-import DemoPanel from '../DemoPanel.vue'
+import { formatLibName } from '@/utils'
 import SizesPagination from './SizesPagination.vue'
 import CodeRaw from './SizesPagination.vue?raw'
 </script>

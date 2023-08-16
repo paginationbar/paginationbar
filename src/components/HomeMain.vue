@@ -31,6 +31,7 @@
 </template>
 
 <script lang="ts" setup>
+import 'prismjs'
 import BasicUsage from '@/components/BasicUsage/index.vue'
 import PagerCountUsage from '@/components/PagerCountUsage/index.vue'
 import TotalCountUsage from '@/components/TotalUsage/index.vue'

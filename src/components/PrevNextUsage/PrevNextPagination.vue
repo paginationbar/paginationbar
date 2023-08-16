@@ -3,9 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-// using `import { createPaginationBar } from 'paginationbar'` instead.
 import { createPaginationBar } from '@/lib/paginationBar'
-// using `import type { PaginationBarInstance } from 'paginationbar'` instead.
 import type { PaginationBarInstance } from '@/lib/interfaces/core'
 import { onMounted, ref, computed, watch } from 'vue'
 import { useThemeStore } from '@/stores/theme'

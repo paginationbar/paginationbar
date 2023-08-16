@@ -7,15 +7,17 @@
 
       <BackgroundPagination />
 
-      <template #code> {{ CodeRaw }} </template>
+      <template #code>
+        <pre class="lang-markup"><code>{{ formatLibName(CodeRaw) }}</code></pre>
+      </template>
     </DemoPanel>
   </div>
 </template>
 
 <script lang="ts" setup>
-import DemoPanel from '../DemoPanel.vue'
 import BackgroundPagination from './BackgroundPagination.vue'
 import CodeRaw from './BackgroundPagination.vue?raw'
+import { formatLibName } from '@/utils'
 </script>
 
 <script lang="ts">
