@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v1.11.1
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v1.11.0...v1.11.1)
+
+### 🩹 Fixes
+
+- **types:** Use readonly instead of get ([5272416](https://github.com/paginationbar/paginationbar/commit/5272416))
+
+### 🏡 Chore
+
+- **example:** Update example ([1b28303](https://github.com/paginationbar/paginationbar/commit/1b28303))
+- **example:** Use demoify header ([5f25c46](https://github.com/paginationbar/paginationbar/commit/5f25c46))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.11.0
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v1.10.0...v1.11.0)
