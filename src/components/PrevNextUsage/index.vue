@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <DemoPanel title="Customizing the button next of prev and next">
+    <DemoPanel title="Button text of prev and next">
       <template #description>
         You can Specify <code class="lang-js">prevText</code> and
         <code class="lang-js">nextText</code> to Customize the button text of

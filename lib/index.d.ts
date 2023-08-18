@@ -69,25 +69,25 @@ interface PaginationBarInstance {
 
   currentJumpNumber: number | ''
 
-  get pageCount(): number
+  readonly pageCount: number
 
-  get lastPageNumber(): number
+  readonly lastPageNumber: number
 
-  get mainPagerCount(): number
+  readonly mainPagerCount: number
 
-  get mainPagerGap(): number
+  readonly mainPagerGap: number
 
-  get mainPagerStart(): number
+  readonly mainPagerStart: number
 
-  get mainPagerEnd(): number
+  readonly mainPagerEnd: number
 
-  get mainPager(): PagerRecord[]
+  readonly mainPager: PagerRecord[]
 
-  get leftPager(): PagerRecord[]
+  readonly leftPager: PagerRecord[]
 
-  get rightPager(): PagerRecord[]
+  readonly rightPager: PagerRecord[]
 
-  get finalPager(): PagerRecord[]
+  readonly finalPager: PagerRecord[]
 
   getContainerEl(): HTMLElement
 
