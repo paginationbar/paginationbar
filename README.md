@@ -41,10 +41,8 @@ $ npm i paginationbar
 import 'paginationbar/lib/style.css'
 
 // Alternatively, you can import only a certain theme style (Recommended).
-
 // material theme
 import 'paginationbar/lib/themes/material/index.css'
-
 // element theme
 import 'paginationbar/lib/themes/element/index.css'
 ```

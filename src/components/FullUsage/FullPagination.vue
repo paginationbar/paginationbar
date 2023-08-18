@@ -22,6 +22,12 @@ const init = () => {
       layout: 'total,sizes,prev,pager,next,jumper',
       total: 300,
       theme: theme.value,
+      onCurrentPageChange(index) {
+        console.log('current page', index)
+      },
+      onPageSizeChange(size) {
+        console.log('page size', size)
+      },
     })
   }
 }
@@ -34,3 +40,4 @@ onMounted(() => {
   init()
 })
 </script>
+@/lib/PaginationBar @/lib/PaginationBarClass

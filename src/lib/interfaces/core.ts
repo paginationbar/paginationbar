@@ -127,6 +127,10 @@ export interface PaginationBarInstance {
   generateJumper(): string
 
   generateTotal(): string
+
+  emitCurrentPageChange(newCurrPage: number): void
+
+  emitPageSizeChange(newSize: number): void
 }
 
 export type CreatePaginationBar = (

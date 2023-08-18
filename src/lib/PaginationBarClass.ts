@@ -43,6 +43,14 @@ export class PaginationBar implements PaginationBarInstance {
   currentJumpNumber: number | '' = ''
   selectedPageSize = this.options.pageSize
 
+  emitCurrentPageChange(newCurrPage: number) {
+    this.options?.onCurrentPageChange(newCurrPage)
+  }
+
+  emitPageSizeChange(newSize: number) {
+    this.options?.onPageSizeChange(newSize)
+  }
+
   setCurrentPage(value: number, reRender: boolean = true) {
     let num = value
 
@@ -52,9 +60,11 @@ export class PaginationBar implements PaginationBarInstance {
       num = this.lastPageNumber
     }
 
-    this.options.currentPage = num
-    this.options?.onCurrentPageChange(this.options.currentPage)
-    reRender && this.render()
+    if (num !== this.options.currentPage) {
+      this.options.currentPage = num
+      this.emitCurrentPageChange(num)
+      reRender && this.render()
+    }
 
     return num
   }
@@ -66,18 +76,22 @@ export class PaginationBar implements PaginationBarInstance {
       num = this.options.total
     }
 
-    this.selectedPageSize = num
-    this.options.pageSize = num
-    this.options?.onPageSizeChange(this.options.pageSize)
-    reRender && this.render()
+    if (num !== this.options.pageSize) {
+      this.selectedPageSize = num
+      this.options.pageSize = num
+      this.emitPageSizeChange(num)
+      reRender && this.render()
+    }
 
     return num
   }
 
   setTotal(value: number, reRender: boolean = true) {
-    this.options.total = value || 0
+    if (value !== this.options.total) {
+      this.options.total = value || 0
 
-    reRender && this.render()
+      reRender && this.render()
+    }
   }
 
   setOptions(opts: PaginationBarOptions, reRender: boolean = false) {

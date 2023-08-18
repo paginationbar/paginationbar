@@ -34,3 +34,4 @@ onMounted(() => {
   init()
 })
 </script>
+@/lib/PaginationBar @/lib/PaginationBarClass

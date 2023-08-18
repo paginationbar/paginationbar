@@ -1,4 +1,4 @@
-import { PaginationBar, createPaginationBar } from './paginationBar'
+import { PaginationBar, createPaginationBar } from './PaginationBarClass'
 
 import '@/lib/styles/main.scss'
 

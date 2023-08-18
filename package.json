@@ -27,8 +27,13 @@
     "pagination",
     "pagination-bar",
     "material design",
-    "element"
+    "element",
+    "web",
+    "vue",
+    "react",
+    "solid",
   ],
+  "license": "MIT",
   "repository": {
     "type": "github",
     "url": "https://github.com/paginationbar/paginationbar"
