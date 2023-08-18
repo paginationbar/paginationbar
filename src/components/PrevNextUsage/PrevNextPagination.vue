@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import { createPaginationBar } from '@/lib/paginationBar'
+import { createPaginationBar } from '@/lib/PaginationBarClass'
 import type { PaginationBarInstance } from '@/lib/interfaces/core'
 import { onMounted, ref, computed, watch } from 'vue'
 import { useThemeStore } from '@/stores/theme'
@@ -36,4 +36,4 @@ onMounted(() => {
   init()
 })
 </script>
-@/lib/PaginationBar @/lib/PaginationBarClass
+@/lib/PaginationBarClass @/lib/PaginationBarClassClass
