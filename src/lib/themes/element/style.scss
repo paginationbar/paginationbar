@@ -1,21 +1,21 @@
 .pagination-bar-container.theme--element {
-  --theme-color: #409eff;
-  --theme-number-min-width: 35.5px;
-  --theme-number-height: 28px;
-  --theme-font-size: 13px;
-  --theme-text-color: #303133;
-  --theme-text-color--secondary: #606266;
-  --theme-font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+  --pagination-bar-color: #409eff;
+  --pagination-bar-number-min-width: 35.5px;
+  --pagination-bar-number-height: 28px;
+  --pagination-bar-font-size: 13px;
+  --pagination-bar-text-color: #303133;
+  --pagination-bar-text-color--secondary: #606266;
+  --pagination-bar-font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
     Microsoft YaHei, SimSun, sans-serif;
-  --theme-pager-background-bg-color: #f4f4f5;
-  --theme-pager-background-min-width: 30px;
+  --pagination-bar-pager-background-bg-color: #f4f4f5;
+  --pagination-bar-pager-background-min-width: 30px;
 
   display: flex;
   align-items: center;
   white-space: nowrap;
   padding: 2px 5px;
-  color: var(--theme-text-color);
-  font-family: var(--theme-font-family);
+  color: var(--pagination-bar-text-color);
+  font-family: var(--pagination-bar-font-family);
 
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button,
@@ -35,7 +35,7 @@
       &__number {
         padding: 0 4px;
         background: #fff;
-        font-size: var(--theme-font-size);
+        font-size: var(--pagination-bar-font-size);
         cursor: pointer;
         box-sizing: border-box;
         text-align: center;
@@ -43,20 +43,20 @@
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        min-width: var(--theme-number-min-width);
-        height: var(--theme-number-height);
+        min-width: var(--pagination-bar-number-min-width);
+        height: var(--pagination-bar-number-height);
 
         svg {
-          font-size: var(--theme-font-size);
+          font-size: var(--pagination-bar-font-size);
         }
 
         &.active {
-          color: var(--theme-color);
+          color: var(--pagination-bar-color);
           cursor: default;
         }
 
         &:hover {
-          color: var(--theme-color);
+          color: var(--pagination-bar-color);
         }
 
         .pager-quick-btn-icon {
@@ -85,7 +85,7 @@
             .pager-quick-btn-icon {
               &--arrow {
                 display: flex;
-                color: var(--theme-color);
+                color: var(--pagination-bar-color);
               }
 
               &--more {
@@ -98,18 +98,18 @@
 
       &.is-background {
         .pagination-bar__pager__number {
-          background-color: var(--theme-pager-background-bg-color);
-          color: var(--theme-text-color--secondary);
+          background-color: var(--pagination-bar-pager-background-bg-color);
+          color: var(--pagination-bar-text-color--secondary);
           margin: 0 5px;
           border-radius: 2px;
-          min-width: var(--theme-pager-background-min-width);
+          min-width: var(--pagination-bar-pager-background-min-width);
 
           &:hover {
-            color: var(--theme-color);
+            color: var(--pagination-bar-color);
           }
 
           &.active {
-            background-color: var(--theme-color);
+            background-color: var(--pagination-bar-color);
             color: #fff;
           }
         }
@@ -117,40 +117,40 @@
     }
 
     &__total {
-      font-size: var(--theme-font-size);
+      font-size: var(--pagination-bar-font-size);
       font-weight: normal;
-      color: var(--theme-text-color--secondary);
+      color: var(--pagination-bar-text-color--secondary);
     }
 
     &__prev,
     &__next {
       border: none;
-      font-size: var(--theme-font-size);
-      min-width: var(--theme-number-min-width);
-      height: var(--theme-number-height);
+      font-size: var(--pagination-bar-font-size);
+      min-width: var(--pagination-bar-number-min-width);
+      height: var(--pagination-bar-number-height);
       display: flex;
       justify-content: center;
       align-items: center;
       box-sizing: border-box;
       cursor: pointer;
       background-color: transparent;
-      color: var(--theme-text-color--secondary);
+      color: var(--pagination-bar-text-color--secondary);
       margin: 0 5px;
 
       &.is-background {
-        background-color: var(--theme-pager-background-bg-color);
-        min-width: var(--theme-pager-background-min-width);
+        background-color: var(--pagination-bar-pager-background-bg-color);
+        min-width: var(--pagination-bar-pager-background-min-width);
       }
 
       svg {
-        font-size: var(--theme-font-size);
-        fill: var(--theme-text-color);
+        font-size: var(--pagination-bar-font-size);
+        fill: var(--pagination-bar-text-color);
       }
 
       &:hover {
-        color: var(--theme-color);
+        color: var(--pagination-bar-color);
         svg {
-          fill: var(--theme-color);
+          fill: var(--pagination-bar-color);
         }
       }
 
@@ -163,12 +163,12 @@
     &__jumper {
       display: flex;
       align-items: center;
-      font-size: var(--theme-font-size);
-      color: var(--theme-text-color--secondary);
+      font-size: var(--pagination-bar-font-size);
+      color: var(--pagination-bar-text-color--secondary);
       font-weight: normal;
 
       &__input {
-        height: var(--theme-number-height);
+        height: var(--pagination-bar-number-height);
         width: 50px;
         margin: 0 4px;
       }
@@ -179,7 +179,7 @@
         border-radius: 4px;
         border: 1px solid #dcdfe6;
         box-sizing: border-box;
-        color: var(--theme-text-color--secondary);
+        color: var(--pagination-bar-text-color--secondary);
         display: inline-block;
         font-size: inherit;
         outline: none;
@@ -189,7 +189,7 @@
         text-align: center;
 
         &:focus {
-          border-color: var(--theme-color);
+          border-color: var(--pagination-bar-color);
         }
       }
     }
@@ -203,11 +203,11 @@
         outline: none;
         padding: 4px 16px 4px 12px;
         cursor: pointer;
-        color: var(--theme-text-color--secondary);
+        color: var(--pagination-bar-text-color--secondary);
         border-radius: 4px;
 
         &:hover {
-          border-color: var(--theme-color);
+          border-color: var(--pagination-bar-color);
         }
       }
     }

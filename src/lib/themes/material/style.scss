@@ -1,20 +1,20 @@
 .pagination-bar-container.theme--material {
-  --theme-color: #1867c0;
-  --theme-number-min-width: 35.5px;
-  --theme-number-height: 35.5px;
-  --theme-font-size: 13px;
-  --theme-text-color: #303133;
-  --theme-text-color--secondary: #606266;
-  --theme-font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+  --pagination-bar-color: #1867c0;
+  --pagination-bar-number-min-width: 35.5px;
+  --pagination-bar-number-height: 35.5px;
+  --pagination-bar-font-size: 13px;
+  --pagination-bar-text-color: #303133;
+  --pagination-bar-text-color--secondary: #606266;
+  --pagination-bar-font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
     Microsoft YaHei, SimSun, sans-serif;
-  --theme-pager-background-bg-color: #fff;
+  --pagination-bar-pager-background-bg-color: #fff;
 
   display: flex;
   align-items: center;
   white-space: nowrap;
   padding: 2px 5px;
-  color: var(--theme-text-color);
-  font-family: var(--theme-font-family);
+  color: var(--pagination-bar-text-color);
+  font-family: var(--pagination-bar-font-family);
 
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button,
@@ -33,7 +33,7 @@
 
       &__number {
         padding: 0 4px;
-        font-size: var(--theme-font-size);
+        font-size: var(--pagination-bar-font-size);
         cursor: pointer;
         box-sizing: border-box;
         text-align: center;
@@ -41,16 +41,16 @@
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        min-width: var(--theme-number-min-width);
-        height: var(--theme-number-height);
+        min-width: var(--pagination-bar-number-min-width);
+        height: var(--pagination-bar-number-height);
         border-radius: 50%;
 
         svg {
-          font-size: var(--theme-font-size);
+          font-size: var(--pagination-bar-font-size);
         }
 
         &.active {
-          background-color: var(--theme-color);
+          background-color: var(--pagination-bar-color);
           color: #fff;
           cursor: default;
           box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
@@ -83,7 +83,7 @@
             .pager-quick-btn-icon {
               &--arrow {
                 display: flex;
-                color: var(--theme-color);
+                color: var(--pagination-bar-color);
               }
 
               &--more {
@@ -96,12 +96,12 @@
 
       &.is-background {
         .pagination-bar__pager__number {
-          background: var(--theme-pager-background-bg-color);
+          background: var(--pagination-bar-pager-background-bg-color);
           box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
             0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
           &.active {
-            background-color: var(--theme-color);
+            background-color: var(--pagination-bar-color);
           }
         }
       }
@@ -110,16 +110,16 @@
     &__prev,
     &__next {
       border: none;
-      font-size: var(--theme-font-size);
-      min-width: var(--theme-number-min-width);
-      height: var(--theme-number-height);
+      font-size: var(--pagination-bar-font-size);
+      min-width: var(--pagination-bar-number-min-width);
+      height: var(--pagination-bar-number-height);
       display: flex;
       justify-content: center;
       align-items: center;
       box-sizing: border-box;
       margin: 0.3rem;
       cursor: pointer;
-      color: var(--theme-text-color--secondary);
+      color: var(--pagination-bar-text-color--secondary);
       border-radius: 50%;
       background-color: transparent;
 
@@ -130,12 +130,12 @@
       }
 
       svg {
-        font-size: var(--theme-font-size);
-        fill: var(--theme-text-color);
+        font-size: var(--pagination-bar-font-size);
+        fill: var(--pagination-bar-text-color);
       }
 
       &:hover {
-        color: var(--theme-color);
+        color: var(--pagination-bar-color);
         svg {
           fill: currentColor;
         }
@@ -146,7 +146,7 @@
         opacity: 0.5;
 
         &:hover {
-          color: var(--theme-text-color--secondary);
+          color: var(--pagination-bar-text-color--secondary);
         }
       }
     }
@@ -154,13 +154,13 @@
     &__jumper {
       display: flex;
       align-items: center;
-      font-size: var(--theme-font-size);
-      color: var(--theme-text-color--secondary);
+      font-size: var(--pagination-bar-font-size);
+      color: var(--pagination-bar-text-color--secondary);
       font-weight: normal;
       margin: 0.3rem;
 
       &__input {
-        height: var(--theme-number-height);
+        height: var(--pagination-bar-number-height);
         width: 50px;
         margin: 0 4px;
       }
@@ -171,7 +171,7 @@
         border-radius: 4px;
         border: 1px solid #dcdfe6;
         box-sizing: border-box;
-        color: var(--theme-text-color--secondary);
+        color: var(--pagination-bar-text-color--secondary);
         display: inline-block;
         font-size: inherit;
         outline: none;
@@ -181,14 +181,14 @@
         text-align: center;
 
         &:focus {
-          border-color: var(--theme-color);
+          border-color: var(--pagination-bar-color);
         }
       }
     }
 
     &__sizes {
       margin: 0 4px;
-      height: var(--theme-number-height);
+      height: var(--pagination-bar-number-height);
 
       &__select {
         display: block;
@@ -198,19 +198,19 @@
         outline: none;
         padding: 4px 16px 4px 12px;
         cursor: pointer;
-        color: var(--theme-text-color--secondary);
+        color: var(--pagination-bar-text-color--secondary);
         border-radius: 4px;
 
         &:hover {
-          border-color: var(--theme-color);
+          border-color: var(--pagination-bar-color);
         }
       }
     }
 
     &__total {
-      font-size: var(--theme-font-size);
+      font-size: var(--pagination-bar-font-size);
       font-weight: normal;
-      color: var(--theme-text-color--secondary);
+      color: var(--pagination-bar-text-color--secondary);
     }
   }
 
