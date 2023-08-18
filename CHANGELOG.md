@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v1.12.0
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v1.11.1...v1.12.0)
+
+### 🚀 Enhancements
+
+- Upgrade current page and page size change event trigger timing ([c257567](https://github.com/paginationbar/paginationbar/commit/c257567))
+
+### 🏡 Chore
+
+- **example:** Fix button text desc ([737d0c4](https://github.com/paginationbar/paginationbar/commit/737d0c4))
+- Fix pkg json ([735b52a](https://github.com/paginationbar/paginationbar/commit/735b52a))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.11.1
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v1.11.0...v1.11.1)
