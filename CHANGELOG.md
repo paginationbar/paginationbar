@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v1.13.0
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v1.12.0...v1.13.0)
+
+### 🚀 Enhancements
+
+- **themes:** Make style variable names more specific ([a9407c6](https://github.com/paginationbar/paginationbar/commit/a9407c6))
+
+### 🏡 Chore
+
+- **example:** Fix lib imports ([40c7f35](https://github.com/paginationbar/paginationbar/commit/40c7f35))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.12.0
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v1.11.1...v1.12.0)
