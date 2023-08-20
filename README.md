@@ -47,7 +47,7 @@ import 'paginationbar/lib/themes/material/index.css'
 import 'paginationbar/lib/themes/element/index.css'
 ```
 
-1. Define a container.
+2. Define a container.
 
 ```html
 <div id="pagination-bar-container"></div>
