@@ -52,7 +52,7 @@ export class PaginationBar implements PaginationBarInstance {
   }
 
   setCurrentPage(value: number, reRender: boolean = true) {
-    let num = value
+    let num = Number.parseInt(value.toFixed(0))
 
     if (num < this.options.firstPageNumber) {
       num = this.options.firstPageNumber
@@ -70,7 +70,7 @@ export class PaginationBar implements PaginationBarInstance {
   }
 
   setPageSize(value: number, reRender: boolean = true) {
-    let num = value
+    let num = Number.parseInt(value.toFixed(0))
 
     if (num > this.options.total) {
       num = this.options.total
