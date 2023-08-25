@@ -1,6 +1,24 @@
 # Changelog
 
 
+## v1.13.1
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v1.13.0...v1.13.1)
+
+### 🩹 Fixes
+
+- Jumper decimal problem ([1ea8fc0](https://github.com/paginationbar/paginationbar/commit/1ea8fc0))
+
+### 🏡 Chore
+
+- **example:** Fix example ([5b3211b](https://github.com/paginationbar/paginationbar/commit/5b3211b))
+- Sync lib dir ([7043355](https://github.com/paginationbar/paginationbar/commit/7043355))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+- Elenh ([@yisibell](http://github.com/yisibell))
+
 ## v1.13.0
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v1.12.0...v1.13.0)
