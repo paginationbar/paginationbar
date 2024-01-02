@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.14.0
+
+[compare changes](https://github.com/paginationbar/paginationbar/compare/v1.13.1...v1.14.0)
+
+### 🚀 Enhancements
+
+- Upgrade all deps to latest ([3455e1e](https://github.com/paginationbar/paginationbar/commit/3455e1e))
+
+### ❤️ Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.13.1
 
 [compare changes](https://github.com/paginationbar/paginationbar/compare/v1.13.0...v1.13.1)
