@@ -221,6 +221,20 @@
       &__pager {
         &__number {
           cursor: not-allowed;
+
+          &.pager-quick-btn {
+            &:hover {
+              .pager-quick-btn-icon {
+                &--arrow {
+                  display: none;
+                }
+
+                &--more {
+                  display: flex;
+                }
+              }
+            }
+          }
         }
       }
 

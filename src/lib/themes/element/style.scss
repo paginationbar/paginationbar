@@ -220,15 +220,21 @@
       &__pager {
         &__number {
           cursor: not-allowed;
+
           &:hover {
             color: unset;
-
+            
             .pager-quick-btn-icon {
               &--arrow {
-                color: unset;
+                display: none;
+              }
+              &--more {
+                display: flex;
               }
             }
           }
+
+       
         }
       }
 
