@@ -11,7 +11,10 @@
 
 # paginationbar
 
-A modern pagination bar library for web app. See [example](https://paginationbar.github.io/paginationbar/) here.
+A modern pagination bar library for web app.
+
+- [Release Notes](./CHANGELOG.md).
+- [Example](https://paginationbar.github.io/paginationbar/).
 
 # Features
 
@@ -138,7 +141,3 @@ Manually re-render.
 ```ts
 paginationBar.render()
 ```
-
-# CHANGE LOGS
-
-See [CHANGE LOG](./CHANGELOG.md).
